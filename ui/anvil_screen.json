@@ -3,8 +3,30 @@
 +*   (c) Microsoft. All rights reserved.                   *
 +*********************************************************/
 
+/*
+  BackImageGUI v1.3.0
+  Base json version v1.2.10.1
+  Download: https://riku1227.github.io/html/distributions/backimage_gui.html
+  SourceCode: https://github.com/riku1227/MCBE-BackImageGUI
+  Twitter: https://twitter.com/_riku1227_
+  Google+: https://plus.google.com/103470090583882439463
+*/
+
 {
   "namespace": "anvil",
+
+  //Edit_BIGUI
+  "anvil_screen_bg": {
+    "type": "image",
+    "size": [ "100%", "100%" ],
+    "texture": "textures/backimagegui/anvil",
+    "variables": [
+      {
+        "requires": "($anvil_bg = replace)",
+        "layer": -1
+      }
+    ]
+  },
 
   //---------------------------------------------------------------------------
   // #region common items
@@ -57,6 +79,7 @@
       "#property_field": "#item_name"
     },
     "max_length": 30,
+    "$disabled_alpha": 1.0, //Edit_BIGUI
     "$text_edit_binding_name": "#text_box_item_name",
     "$text_edit_box_label_size": [ "default", 10 ]
   },
@@ -69,7 +92,11 @@
     "size": [ "100%", "40%" ],
     "offset": [ 0, "5%" ],
     "controls": [
-      { "anvil_icon_panel@anvil.anvil_icon_panel": { } },
+      {
+        "anvil_icon_panel@anvil.anvil_icon_panel": {
+          "ignored": "($anvil_bg = replace)" //Edit_BIGUI
+        }
+      },
       { "anvil_title_and_text_panel@anvil.anvil_title_and_text_panel": { } }
     ]
   },
@@ -91,8 +118,8 @@
     "type": "panel",
     "anchor_from": "bottom_left",
     "anchor_to": "bottom_left",
-    "size": [ "100%", "70%" ],
-    "offset": [0, 2],
+    "size": [ "85%", "65%" ], //Edit_BIGUI
+    "offset": [20, 0], //Edit_BIGUI
     "controls": [
       { "text_edit_control@anvil.text_edit_control": { } }
     ]
@@ -149,7 +176,13 @@
       {
         "container_item@common.container_item": {
           "anchor_to": "center",
-          "anchor_from": "center"
+          "anchor_from": "center",
+          "variables": [
+            {
+              "requires": "($anvil_bg = replace)",
+              "$background_images": ""
+            }
+          ] //Edit_BIGUI
         }
       }
     ]
@@ -180,7 +213,8 @@
           "grid_position": [ 1, 0 ],
           "controls": [
             { "plus_sign_icon@anvil.plus_sign_icon": { } }
-          ]
+          ],
+          "ignored": "($anvil_bg = replace)" //Edit_BIGUI
         }
       },
       {
@@ -209,7 +243,8 @@
                 "layer": 1
               }
             }
-          ]
+          ],
+          "ignored": "($anvil_bg = replace)" //Edit_BIGUI
         }
       },
       {
@@ -308,15 +343,45 @@
         "root_panel@common.root_panel": {
           "layer": 1,
           "controls": [
-            { "common_panel@common.common_panel": {} },
+            {
+              "common_panel@common.common_panel": {
+                "variables": [
+                  {
+                    "requires": "($anvil_bg = replace)",
+                    "$dialog_background": ""
+                  }
+                ] //Edit_BIGUI
+              }
+            },
             {
               "anvil_screen_inventory": {
                 "type": "panel",
                 "layer": 2,
                 "controls": [
                   { "top_half_panel@anvil.top_half_panel": {} },
-                  { "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {} },
-                  { "hotbar_grid@common.hotbar_grid_template": {} },
+                  { "anvil_screen_bg@anvil.anvil_screen_bg": {} }, //Edit_BIGUI
+                  {
+                    "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {
+                      "offset":[0,-3], //Edit_BIGUI
+                      "variables": [
+                        {
+                          "requires": "($anvil_bg = replace)",
+                          "$background_images": "" //Edit_BIGUI
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "hotbar_grid@common.hotbar_grid_template": {
+                      "offset":[0,-7], //Edit_BIGUI
+                      "variables": [
+                        {
+                          "requires": "($anvil_bg = replace)",
+                          "$background_images": "" //Edit_BIGUI
+                        }
+                      ]
+                    }
+                  },
                   { "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": {} }
                 ]
               }
