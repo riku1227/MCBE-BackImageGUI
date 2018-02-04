@@ -1,9 +1,0 @@
-{
-  /*
-    Screen background image mode
-    replace
-    overlay
-    disable
-  */
-  "$anvil_bg": "replace"
-}
