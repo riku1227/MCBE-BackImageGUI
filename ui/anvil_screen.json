@@ -18,12 +18,20 @@
   //Edit_BIGUI
   "anvil_screen_bg": {
     "type": "image",
+    "layer": "$anvil_layer",
     "size": [ "100%", "100%" ],
+    "alpha": "$anvil_alpha",
     "texture": "textures/backimagegui/anvil",
     "variables": [
       {
         "requires": "($anvil_bg = replace)",
-        "layer": -1
+        "$anvil_layer": -1,
+        "$anvil_alpha": 1
+      },
+      {
+        "requires": "($anvil_bg = overlay)",
+        "$anvil_layer": 2,
+        "$anvil_alpha": 0.6
       }
     ]
   },
@@ -37,7 +45,7 @@
     "anchor_from": "top_left",
     "anchor_to": "top_left",
     "color": "$title_text_color",
-    "layer": 1
+    "layer": 3 //Edit_BIGUI
   },
 
   // #endregion
@@ -80,6 +88,7 @@
     },
     "max_length": 30,
     "$disabled_alpha": 1.0, //Edit_BIGUI
+    "layer": 5, //Edit_BIGUI
     "$text_edit_binding_name": "#text_box_item_name",
     "$text_edit_box_label_size": [ "default", 10 ]
   },
@@ -94,6 +103,7 @@
     "controls": [
       {
         "anvil_icon_panel@anvil.anvil_icon_panel": {
+          "layer": 5, //Edit_BIGUI
           "ignored": "($anvil_bg = replace)" //Edit_BIGUI
         }
       },
