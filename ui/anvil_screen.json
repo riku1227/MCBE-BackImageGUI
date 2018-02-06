@@ -369,7 +369,11 @@
                 "layer": 2,
                 "controls": [
                   { "top_half_panel@anvil.top_half_panel": {} },
-                  { "anvil_screen_bg@anvil.anvil_screen_bg": {} }, //Edit_BIGUI
+                  {
+                    "anvil_screen_bg@anvil.anvil_screen_bg": {
+                      "ignored": "($anvil_bg = disable)"
+                    }
+                  }, //Edit_BIGUI
                   {
                     "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {
                       "offset":[0,-3], //Edit_BIGUI
