@@ -32,6 +32,11 @@
         "requires": "($anvil_bg = overlay)",
         "$anvil_layer": 2,
         "$anvil_alpha": 0.6
+      },
+      {
+        "requires": "($anvil_bg = background)",
+        "$anvil_layer": 1,
+        "$anvil_alpha": 1
       }
     ]
   },
@@ -352,6 +357,7 @@
       {
         "root_panel@common.root_panel": {
           "layer": 1,
+          "alpha": 0.6,
           "controls": [
             {
               "common_panel@common.common_panel": {
@@ -371,7 +377,7 @@
                   { "top_half_panel@anvil.top_half_panel": {} },
                   {
                     "anvil_screen_bg@anvil.anvil_screen_bg": {
-                      "ignored": "($anvil_bg = disable)"
+                      "ignored": "($anvil_bg = disable or $anvil_bg = background)"
                     }
                   }, //Edit_BIGUI
                   {
@@ -403,6 +409,11 @@
             { "inventory_selected_icon_button@common.inventory_selected_icon_button": {} },
             { "gamepad_cursor@common.gamepad_cursor_button": {} }
           ]
+        }
+      },
+      {
+        "anvil_screen_background@anvil.anvil_screen_bg": {
+          "ignored": "(not ($anvil_bg = background))"
         }
       }
     ]

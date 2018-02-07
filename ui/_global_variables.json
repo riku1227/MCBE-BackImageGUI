@@ -3,6 +3,7 @@
     Screen background image mode
     replace
     overlay
+    background
     disable
   */
   "$anvil_bg": "replace"
