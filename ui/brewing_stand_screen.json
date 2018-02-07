@@ -32,6 +32,11 @@
         "requires": "($brewing_stand_bg = overlay)",
         "$brewing_stand_layer": 2,
         "$brewing_stand_alpha": 0.6
+      },
+      {
+        "requires": "($brewing_stand_bg = background)",
+        "$brewing_stand_layer": 1,
+        "$brewing_stand_alpha": 1
       }
     ]
   },
@@ -358,7 +363,11 @@
                 "layer": 5,
                 "controls": [
                   { "brewing_panel_top_half@brewing_stand.brewing_panel_top_half": {} },
-                  { "brewing_stand_screen_bg@brewing_stand.brewing_stand_screen_bg": {} },
+                  {
+                    "brewing_stand_screen_bg@brewing_stand.brewing_stand_screen_bg": {
+                      "ignored": "($brewing_stand_bg = disable or $brewing_stand_bg = background)"
+                    }
+                  },
                   {
                     "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {
                       "offset":[0,-3], //Edit_BIGUI
@@ -388,6 +397,11 @@
             { "inventory_selected_icon_button@common.inventory_selected_icon_button": {} },
             { "gamepad_cursor@common.gamepad_cursor_button": {} }
           ]
+        }
+      },
+      {
+        "brewing_stand_screen_background@brewing_stand.brewing_stand_screen_bg": {
+          "ignored": "(not ($brewing_stand_bg = background))"
         }
       }
     ]

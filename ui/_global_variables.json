@@ -6,5 +6,6 @@
     background
     disable
   */
-  "$anvil_bg": "replace"
+  "$anvil_bg": "replace",
+  "$brewing_stand_bg": "replace"
 }
