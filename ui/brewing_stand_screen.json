@@ -3,8 +3,34 @@
 +*   (c) Microsoft. All rights reserved.                   *
 +*********************************************************/
 
+/*
+  BackImageGUI v1.3.0
+  Base json version v1.2.10.1
+  Download: https://riku1227.github.io/html/distributions/backimage_gui.html
+  SourceCode: https://github.com/riku1227/MCBE-BackImageGUI
+  Twitter: https://twitter.com/_riku1227_
+  Google+: https://plus.google.com/103470090583882439463
+*/
+
 {
   "namespace": "brewing_stand",
+
+  //Edit_BIGUI
+  "brewing_stand_screen_bg": {
+    "type": "image",
+    "layer": "$anvil_layer",
+    "size": [ "100%", "100%" ],
+    "alpha": "$anvil_alpha",
+    "texture": "textures/backimagegui/brewing_stand",
+    "variables": [
+      {
+        "requires": "($brewing_stand_bg = replace)",
+        "$anvil_layer": -1,
+        "$anvil_alpha": 1
+      }
+    ]
+  },
+
   //-----------------------------------------------------------
   // Images
   //-----------------------------------------------------------
@@ -69,7 +95,7 @@
     "type": "image",
     "texture": "textures/ui/bubbles_empty",
     "layer": 2,
-    "offset": [ -23, -14 ],
+    "offset": [ -19, -14 ], //Edit_BIGUI
     "size": [ 12, 30 ],
     "anchor_from": "center",
     "anchor_to": "center"
@@ -79,7 +105,7 @@
     "type": "image",
     "texture": "textures/ui/bubbles_full",
     "layer": 3,
-    "offset": [ -23, -14 ],
+    "offset": [ -19, -14 ], //Edit_BIGUI
     "size": [ 12, 30 ],
     "clip_direction": "down",
     "bindings": [
@@ -107,7 +133,7 @@
     "texture": "textures/ui/brewing_arrow_full",
     "anchor_from": "center",
     "anchor_to": "center",
-    "offset": [ 16, -14 ],
+    "offset": [ 13.5, -14 ], //Edit_BIGUI
     "size": [ 9, 28 ],
     "clip_direction": "up",
     "bindings": [
@@ -125,7 +151,7 @@
     "texture": "textures/ui/brewing_fuel_bar_empty",
     "anchor_from": "center",
     "anchor_to": "center",
-    "offset": [ -23, 3 ],
+    "offset": [ -20, 3 ], //Edit_BIGUI
     "size": [ 24, 6 ]
   },
 
@@ -135,7 +161,7 @@
     "texture": "textures/ui/brewing_fuel_bar_full",
     "anchor_from": "center",
     "anchor_to": "center",
-    "offset": [ -23, 3 ],
+    "offset": [ -20, 3 ], //Edit_BIGUI
     "size": [ 22, 4 ],
     "clip_direction": "left",
     "bindings": [
@@ -164,13 +190,19 @@
   "brewingstand_output_item@common.container_item": {
     "size": [ 18, 18 ],
     "$cell_overlay_ref": "brewing_stand.bottle_empty_image",
-    "$item_collection_name": "brewing_result_items"
+    "$item_collection_name": "brewing_result_items",
+    "variables": [
+      {
+        "requires": "($brewing_stand_bg = replace)",
+        "$background_images": ""
+      }
+    ] //Edit_BIGUI
   },
 
   "brewing_output_slots": {
     "type": "grid",
     "size": [ 54, 18 ],
-    "offset": [ 0, 23 ],
+    "offset": [ -1, 23 ], //Edit_BIGUI
     "grid_dimensions": [ 3, 1 ],
     "collection_name": "brewing_result_items",
     "controls": [
@@ -221,7 +253,13 @@
           "$item_collection_name": "brewing_input_item",
 
           "$focus_override_left_binding_type": "none",
-          "$focus_override_left": "brewing_fuel"
+          "$focus_override_left": "brewing_fuel",
+          "variables": [
+            {
+              "requires": "($brewing_stand_bg = replace)",
+              "$background_images": ""
+            }
+          ] //Edit_BIGUI
         }
       }
     ]
@@ -230,18 +268,24 @@
   "brewing_fuel_slot": {
     "type": "panel",
     "size": [ 18, 18 ],
-    "offset": [ -70, -18 ],
+    "offset": [ -63, -18 ], //Edit_BIGUI
     "controls": [
       {
         "fuel_grid_item@common.container_item": {
-          "$cell_overlay_ref": "brewing_stand.fuel_empty_image",
+          //"$cell_overlay_ref": "brewing_stand.fuel_empty_image", //Edit_BIGUI
           "$item_collection_name": "brewing_fuel_item",
 
           "$focus_id_binding_type": "none",
           "$focus_id": "brewing_fuel",
 
           "$focus_override_right_binding_type": "none",
-          "$focus_override_right": "brewing_input_item0"
+          "$focus_override_right": "brewing_input_item0",
+          "variables": [
+            {
+              "requires": "($brewing_stand_bg = replace)",
+              "$background_images": ""
+            }
+          ] //Edit_BIGUI
         }
       }
     ]
@@ -266,14 +310,14 @@
       { "brewing_input_slot@brewing_stand.brewing_input_slot": { } },
       { "brewing_output_slots@brewing_stand.brewing_output_slots": { } },
       { "brewing_fuel_slot@brewing_stand.brewing_fuel_slot": { } },
-      { "brewing_arrow_empty_image@brewing_stand.brewing_arrow_empty_image": { } },
+      //{ "brewing_arrow_empty_image@brewing_stand.brewing_arrow_empty_image": { } }, //Edit_BIGUI
       { "brewing_arrow_full_image@brewing_stand.brewing_arrow_full_image": { } },
       { "brewing_fuel_bar_empty_image@brewing_stand.brewing_fuel_bar_empty_image": { } },
       { "brewing_fuel_bar_full_image@brewing_stand.brewing_fuel_bar_full_image": { } },
       { "bubbles_empty_image@brewing_stand.bubbles_empty_image": { } },
-      { "bubbles_full_image@brewing_stand.bubbles_full_image": { } },
-      { "brewing_fuel_pipes@brewing_stand.brewing_fuel_pipes": { } },
-      { "brewing_pipes@brewing_stand.brewing_pipes": { } }
+      { "bubbles_full_image@brewing_stand.bubbles_full_image": { } }
+      //{ "brewing_fuel_pipes@brewing_stand.brewing_fuel_pipes": { } }, //Edit_BIGUI
+      //{ "brewing_pipes@brewing_stand.brewing_pipes": { } } //Edit_BIGUI
     ]
   },
 
@@ -297,8 +341,29 @@
                 "layer": 5,
                 "controls": [
                   { "brewing_panel_top_half@brewing_stand.brewing_panel_top_half": {} },
-                  { "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {} },
-                  { "hotbar_grid@common.hotbar_grid_template": {} },
+                  { "brewing_stand_screen_bg@brewing_stand.brewing_stand_screen_bg": {} },
+                  {
+                    "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {
+                      "offset":[0,-3], //Edit_BIGUI
+                      "variables": [
+                        {
+                          "requires": "($brewing_stand_bg = replace)",
+                          "$background_images": "" //Edit_BIGUI
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "hotbar_grid@common.hotbar_grid_template": {
+                      "offset":[0,-7], //Edit_BIGUI
+                      "variables": [
+                        {
+                          "requires": "($brewing_stand_bg = replace)",
+                          "$background_images": "" //Edit_BIGUI
+                        }
+                      ]
+                    }
+                  },
                   { "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": {} }
                 ]
               }
