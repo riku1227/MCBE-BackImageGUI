@@ -3,8 +3,49 @@
 +*   (c) Microsoft. All rights reserved.                   *
 +*********************************************************/
 
+/*
+  BackImageGUI v1.3.0
+  Base json version v1.2.10.1
+  Download: https://riku1227.github.io/html/distributions/backimage_gui.html
+  SourceCode: https://github.com/riku1227/MCBE-BackImageGUI
+  Twitter: https://twitter.com/_riku1227_
+  Google+: https://plus.google.com/103470090583882439463
+*/
+
 {
   "namespace": "chest",
+
+  //Edit_BIGUI
+  "chest_screen_bg": {
+    "type": "image",
+    "layer": "$chest_layer",
+    "size": [ "100%", "100%" ],
+    "alpha": "$chest_alpha",
+    "texture": "textures/backimagegui/chest",
+    "variables": [
+      {
+        "requires": "($chest_bg = replace)",
+        "$chest_layer": -1,
+        "$chest_alpha": 1
+      }
+    ]
+  },
+
+  //Edit_BIGUI
+  "large_chest_screen_bg": {
+    "type": "image",
+    "layer": "$large_chest_layer",
+    "size": [ "100%", "100%" ],
+    "alpha": "$large_chest_alpha",
+    "texture": "textures/backimagegui/large_chest",
+    "variables": [
+      {
+        "requires": "($large_chest_bg = replace)",
+        "$large_chest_layer": -1,
+        "$large_chest_alpha": 1
+      }
+    ]
+  },
 
   ////---------------------------------------------------------------------------
   //// #slot region area
@@ -22,8 +63,24 @@
   },
 
   "chest_grid_item@common.container_item": {
-    "$item_collection_name": "container_items"
+    "$item_collection_name": "container_items",
+    "variables": [
+      {
+        "requires": "($chest_bg = replace)",
+        "$background_images": ""
+      }
+    ] //Edit_BIGUI
   },
+
+  "large_chest_grid_item@common.container_item": {
+    "$item_collection_name": "container_items",
+    "variables": [
+      {
+        "requires": "($large_chest_bg = replace)",
+        "$background_images": ""
+      }
+    ]
+  }, //Edit_BIGUI
 
   "small_chest_grid": {
     "type": "grid",
@@ -41,7 +98,7 @@
     "anchor_from": "top_left",
     "anchor_to": "top_left",
     "grid_dimensions": [ 9, 6 ],
-    "grid_item_template": "chest_grid_item",
+    "grid_item_template": "large_chest_grid_item", //Edit_BIGUI
     "collection_name": "container_items"
   },
 
@@ -108,9 +165,34 @@
                 "type": "panel",
                 "layer": 5,
                 "controls": [
-                  { "small_chest_panel_top_half@chest.small_chest_panel_top_half": {} },
-                  { "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {} },
-                  { "hotbar_grid@common.hotbar_grid_template": {} },
+                  {
+                    "small_chest_panel_top_half@chest.small_chest_panel_top_half": {
+                      "offset": [0, 5.5] //Edit_BIGUI
+                    }
+                  },
+                  { "chest_screen_bg@chest.chest_screen_bg": {} }, //Edit_BIGUI
+                  {
+                    "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {
+                      "offset":[0,-3], //Edit_BIGUI
+                      "variables": [
+                        {
+                          "requires": "($chest_bg = replace)",
+                          "$background_images": ""
+                        }
+                      ] //Edit_BIGUI
+                    }
+                  },
+                  {
+                    "hotbar_grid@common.hotbar_grid_template": {
+                      "offset":[0,-7], //Edit_BIGUI
+                      "variables": [
+                        {
+                          "requires": "($chest_bg = replace)",
+                          "$background_images": ""
+                        }
+                      ] //Edit_BIGUI
+                    }
+                  },
                   { "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": {} }
                 ]
               }
@@ -143,9 +225,36 @@
                 "type": "panel",
                 "layer": 5,
                 "controls": [
-                  { "large_chest_panel_top_half@chest.large_chest_panel_top_half": {} },
-                  { "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {} },
-                  { "hotbar_grid@common.hotbar_grid_template": {} },
+                  {
+                    "large_chest_panel_top_half@chest.large_chest_panel_top_half": {
+                      "offset": [0, 5.5] //Edit_BIGUI
+                    }
+                  },
+                  {
+                    "large_chest_screen_bg@chest.large_chest_screen_bg": {}
+                  }, //Edit_BIGUI
+                  {
+                    "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {
+                      "offset":[0,-3], //Edit_BIGUI
+                      "variables": [
+                        {
+                          "requires": "($large_chest_bg = replace)",
+                          "$background_images": ""
+                        }
+                      ] //Edit_BIGUI
+                    }
+                  },
+                  {
+                    "hotbar_grid@common.hotbar_grid_template": {
+                      "offset":[0,-7], //Edit_BIGUI
+                      "variables": [
+                        {
+                          "requires": "($large_chest_bg = replace)",
+                          "$background_images": ""
+                        }
+                      ] //Edit_BIGUI
+                    }
+                  },
                   { "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": {} }
                 ]
               }
