@@ -5,7 +5,7 @@
 
 /*
   BackImageGUI v1.3.0
-  Base json version v1.2.10.1
+  Base json version v1.2.10.2
   Download: https://riku1227.github.io/html/distributions/backimage_gui.html
   SourceCode: https://github.com/riku1227/MCBE-BackImageGUI
   Twitter: https://twitter.com/_riku1227_
@@ -413,11 +413,13 @@
       {
         "requires": "$desktop_screen",
         "$screen_content": "brewing_stand.brewing_stand_panel",
-        "$screen_bg_content": "common.screen_background"
+        "$screen_bg_content": "common.screen_background",
+        "$gamepad_cursor": true
       },
       {
         "requires": "$pocket_screen",
-        "$screen_content": "brewing_stand_pocket.brewing_stand_panel"
+        "$screen_content": "brewing_stand_pocket.brewing_stand_panel",
+        "$gamepad_cursor": false
       }
     ]
   }

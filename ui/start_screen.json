@@ -235,24 +235,10 @@
 
   // Button will resize itself to length of the text
   "xbl_signin_button@common_buttons.light_text_form_fitting_button": {
-    "$pressed_button_name": "button.signin",
+    "$pressed_button_name": "button.xbl_signin",
     "$button_text_max_size": [ 80, 10 ], // longest localized string length will fit in this
     "$button_text": "xbox.signin",
     "$focus_id": "menu_xbox_signin_button"
-  },
-
-
-  "nx_signin_button@common_buttons.light_text_button": {
-    "$pressed_button_name": "button.signin",
-    "$button_text_max_size": [ "100%", 20 ],
-    "$focus_id": "menu_xbox_signin_button",
-    "$button_text": "#nx_signin_text",
-    "$button_text_binding_type": "global",
-    "bindings": [
-      {
-        "binding_name": "#nx_signin_text"
-      }
-    ]
   },
 
   "column_frame": {
@@ -330,29 +316,10 @@
             },
             {
               "xbl_btn@start.column_frame": {
-                "ignored": "($nx_os)",
                 "size": [ 94, 32 ],
-                "max_size": [ "95%", 32 ],
+                "max_size": [ "100% - 5%", 32 ],
                 "controls": [
                   { "xbl_signin_button@start.xbl_signin_button": { } }
-                ],
-                "bindings": [
-                  {
-                    "binding_name": "#sign_in_visible",
-                    "binding_name_override": "#visible"
-                  }
-                ]
-              }
-            },
-            {
-              "nx_signin_btn@start.column_frame": {
-                "ignored": "(not $nx_os)",
-                "size": [ 120, 32 ],
-                "max_size": [ "95%", 32 ],
-                "controls": [
-                  {
-                    "nx_signin_button@start.nx_signin_button": { }
-                  }
                 ],
                 "bindings": [
                   {
@@ -382,12 +349,6 @@
             }
           ]
         }
-      }
-    ],
-    "bindings": [
-      {
-        "binding_name": "#online_buttons_visible",
-        "binding_name_override": "#visible"
       }
     ]
   },
@@ -514,8 +475,7 @@
                                   "bindings": [
                                     {
                                       "binding_name": "#update_icon_visible",
-                                      "binding_name_override": "#visible",
-                                      "binding_condition": "always"
+                                      "binding_name_override": "#visible"
                                     }
                                   ]
                                 }
@@ -661,12 +621,6 @@
         "ignored": "(not $can_quit)",
         "from_button_id": "button.menu_cancel",
         "to_button_id": "button.menu_exit",
-        "mapping_type": "global"
-      },
-      {
-        "ignored": "(not $nx_os)",
-        "from_button_id": "button.controller_secondary_select",
-        "to_button_id": "button.menu_offline",
         "mapping_type": "global"
       }
     ],

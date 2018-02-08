@@ -143,10 +143,21 @@
 
   "inventory_container_slot_button@common.container_slot_button_prototype": {
     "$button_take_half_place_one|default": "button.container_take_half_place_one",
-    "$button_auto_place|default": "button.container_auto_place",
-    "$button_take_all_place_all|default": "button.container_take_all_place_all",
-    "$coalesce_button|default": "button.coalesce_stack",
-    "$item_painting_button|default": "button.shape_drawing",
+    "$button_auto_place|default": "button.crafting_container_auto_place",
+    "variables": [
+      {
+        "requires": "($touch and $pocket_screen)",
+        "$button_take_all_place_all|default": "button.container_touch_select",
+        "$coalesce_button|default": "button.touch_coalesce_stack",
+        "$item_painting_button|default": "button.touch_painting"
+      },
+      {
+        "requires": "(not ($touch and $pocket_screen))",
+        "$button_take_all_place_all|default": "button.container_take_all_place_all",
+        "$coalesce_button|default": "button.coalesce_stack",
+        "$item_painting_button|default": "button.shape_drawing"
+      }
+    ],
     "button_mappings": [
       {
         "from_button_id": "button.menu_cancel",
@@ -215,7 +226,7 @@
   },
 
   "creative_hotbar_container_slot_button@crafting.inventory_container_slot_button": {
-    "$button_auto_place": "button.container_auto_destroy"
+    "$button_auto_place": "button.container_remove"
   },
 
   "no_coalesce_container_slot_button@crafting.inventory_container_slot_button": {
@@ -809,6 +820,7 @@
                 "grid_position": [ 0, 0 ],
                 "$cell_overlay_ref": "crafting.armor_overlay_helmet",
                 "$button_ref": "crafting.no_coalesce_container_slot_button",
+                "$slot_selected_binding_name": "#slot_selected_touch",
 
                 "$focus_id_binding_type": "none",
                 "$focus_id": "armor_item_head",
@@ -822,6 +834,7 @@
                 "grid_position": [ 0, 1 ],
                 "$cell_overlay_ref": "crafting.armor_overlay_chest",
                 "$button_ref": "crafting.no_coalesce_container_slot_button",
+                "$slot_selected_binding_name": "#slot_selected_touch",
 
                 "$focus_id_binding_type": "none",
                 "$focus_id": "armor_item_chest",
@@ -835,6 +848,7 @@
                 "grid_position": [ 0, 2 ],
                 "$cell_overlay_ref": "crafting.armor_overlay_legs",
                 "$button_ref": "crafting.no_coalesce_container_slot_button",
+                "$slot_selected_binding_name": "#slot_selected_touch",
 
                 "$focus_id_binding_type": "none",
                 "$focus_id": "armor_item_legs",
@@ -848,6 +862,7 @@
                 "grid_position": [ 0, 3 ],
                 "$cell_overlay_ref": "crafting.armor_image_feet",
                 "$button_ref": "crafting.no_coalesce_container_slot_button",
+                "$slot_selected_binding_name": "#slot_selected_touch",
 
                 "$focus_id_binding_type": "none",
                 "$focus_id": "armor_item_feet",
@@ -876,6 +891,7 @@
                 "grid_position": [ 0, 0 ],
                 "$cell_overlay_ref": "crafting.armor_overlay_shield",
                 "$button_ref": "crafting.no_coalesce_container_slot_button",
+                "$slot_selected_binding_name": "#slot_selected_touch",
 
                 "$focus_override_left_binding_type": "none",
                 "$focus_override_left": "armor_item_feet"
@@ -931,7 +947,8 @@
     "$item_collection_name": "crafting_input_items",
     "$background_images": "crafting.crafting_container_cell_images",
     "$item_renderer_binding_condition": "always",
-    "$button_ref": "crafting.inventory_container_slot_button"
+    "$button_ref": "crafting.inventory_container_slot_button",
+    "$slot_selected_binding_name": "#slot_selected_touch"
   },
 
   "crafting_grid_3x3": {
@@ -1551,6 +1568,7 @@
 
     "$overlay_images|default": "crafting.container_overlay_images",
     "$overlay_image_control_name|default": "overlay",
+    "$slot_selected_binding_name": "#slot_selected_touch",
 
     "controls": [
       {
@@ -1623,8 +1641,6 @@
     "$button_ref": "crafting.creative_no_coalesce_container_slot_button",
     "$background_images": "crafting.recipe_container_cell_images",
 
-    "$slot_selected_binding_name": "#is_creative_selected_slot",
-
     "$stack_count_binding_name": "#recipe_craftable_count",
     "$item_collection_name": "recipe_book",
     "$scrolling_grid_item_size|default": [ 18, 18 ],
@@ -1638,7 +1654,7 @@
   //----------------------------------
 
   "scroll_grid_panel": {
-    "type": "input_panel",
+    "type": "panel",
     "size": [ "100%", "100%c + 2px" ],
     "controls": [
       { "grid@crafting.scroll_grid": {} }
@@ -1659,6 +1675,7 @@
     "collection_name": "$collection_name",
     "grid_rescaling_type": "horizontal",
     "grid_item_template": "$grid_item_template",
+    "precached_grid_item_count": "$grid_item_precache_count",
     "bindings": [
       {
         "binding_name": "#recipe_book_total_items",
@@ -1718,27 +1735,12 @@
     "$scrolling_panel_base_button_mappings": [
       {
         "from_button_id": "button.menu_select",
-        "to_button_id": "button.container_reset_held",
+        "to_button_id": "button.attempt_discard_all",
         "mapping_type": "pressed"
       },
       {
         "from_button_id": "button.menu_secondary_select",
-        "to_button_id": "button.container_reset_held",
-        "mapping_type": "pressed"
-      },
-      {
-        "from_button_id": "button.menu_ok",
-        "to_button_id": "button.container_reset_held",
-        "mapping_type": "pressed"
-      },
-      {
-        "from_button_id": "button.controller_select",
-        "to_button_id": "button.container_reset_held",
-        "mapping_type": "pressed"
-      },
-      {
-        "from_button_id": "button.controller_secondary_select",
-        "to_button_id": "button.container_reset_held",
+        "to_button_id": "button.attempt_discard_one",
         "mapping_type": "pressed"
       }
     ]
@@ -1941,13 +1943,15 @@
       {
         "inventory_panel_bottom_half@common.inventory_panel_bottom_half": {
           "layer": 2,
-          "$button_ref": "crafting.inventory_container_slot_button"
+          "$button_ref": "crafting.inventory_container_slot_button",
+          "$slot_selected_binding_name": "#slot_selected_touch"
         }
       },
       {
         "hotbar_grid@common.hotbar_grid_template": {
           "layer": 2,
-          "$button_ref": "crafting.inventory_container_slot_button"
+          "$button_ref": "crafting.inventory_container_slot_button",
+          "$slot_selected_binding_name": "#slot_selected_touch"
         }
       }
     ]
@@ -1958,6 +1962,7 @@
     "controls": [
       {
         "bg@common.common_panel": {
+          "$dialog_background": "common.dialog_background_opaque",
           "$show_close_button": false
         }
       },
@@ -2029,7 +2034,8 @@
                 "anchor_from": "bottom_middle",
                 "anchor_to": "bottom_middle",
 
-                "$button_ref": "crafting.creative_hotbar_container_slot_button"
+                "$button_ref": "crafting.creative_hotbar_container_slot_button",
+                "$slot_selected_binding_name": "#slot_selected_touch"
               }
             }
           ]
@@ -2322,7 +2328,7 @@
       },
       {
         "from_button_id": "button.chat",
-        "to_button_id": "button.recipe_search",
+        "to_button_id": "button.chat",
         "mapping_type": "global"
       }
     ]

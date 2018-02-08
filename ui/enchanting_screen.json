@@ -400,11 +400,13 @@
       {
         "requires": "$desktop_screen",
         "$screen_content": "enchanting.enchanting_panel",
-        "$screen_bg_content": "common.screen_background"
+        "$screen_bg_content": "common.screen_background",
+        "$gamepad_cursor": true
       },
       {
         "requires": "$pocket_screen",
-        "$screen_content": "enchanting_pocket.enchanting_panel"
+        "$screen_content": "enchanting_pocket.enchanting_panel",
+        "$gamepad_cursor": false
       }
     ]
   }

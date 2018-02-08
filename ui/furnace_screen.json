@@ -12,10 +12,10 @@
     "offset": [ -21, 0 ],
     "controls": [
       {
-        "flame_empty_image@furnace.flame_empty_image": {}
+        "flame_empty_image@furnace.flame_empty_image": { }
       },
       {
-        "flame_full_image@furnace.flame_full_image": {}
+        "flame_full_image@furnace.flame_full_image": { }
       }
     ]
   },
@@ -93,9 +93,9 @@
           "anchor_from": "right_middle",
           "anchor_to": "right_middle",
           "controls": [
-            { "furnace_ingredient_panel@furnace_ingredient_panel": {} },
-            { "flame_panel@flame_panel": {} },
-            { "furnace_fuel_panel@furnace_fuel_panel": {} }
+            { "furnace_ingredient_panel@furnace_ingredient_panel": { } },
+            { "flame_panel@flame_panel": { } },
+            { "furnace_fuel_panel@furnace_fuel_panel": { } }
           ]
         }
       }
@@ -142,65 +142,6 @@
     ]
   },
 
-  "furnace_output_slot_button@common.container_slot_button_prototype": {
-    "button_mappings": [
-      {
-        "from_button_id": "button.menu_select",
-        "to_button_id": "button.container_output_take_all",
-        "mapping_type": "pressed"
-      },
-      {
-        "from_button_id": "button.menu_ok",
-        "to_button_id": "button.container_output_take_all",
-        "mapping_type": "pressed"
-      },
-      {
-        "from_button_id": "button.menu_secondary_select",
-        "to_button_id": "button.container_output_take_half",
-        "mapping_type": "pressed"
-      },
-      {
-        "from_button_id": "button.controller_select",
-        "to_button_id": "button.container_output_take_half",
-        "mapping_type": "pressed"
-      },
-      {
-        "from_button_id": "button.menu_auto_place",
-        "to_button_id": "button.container_auto_place",
-        "mapping_type": "pressed"
-      },
-      {
-        "from_button_id": "button.controller_secondary_select",
-        "to_button_id": "button.container_auto_place",
-        "mapping_type": "pressed"
-      },
-      {
-        "from_button_id": "button.menu_inventory_drop",
-        "to_button_id": "button.drop_one",
-        "mapping_type": "pressed"
-      },
-      {
-        "from_button_id": "button.menu_inventory_drop_all",
-        "to_button_id": "button.drop_all",
-        "mapping_type": "pressed"
-      },
-      {
-        "from_button_id": "button.menu_select",
-        "to_button_id": "button.coalesce_stack",
-        "mapping_type": "double_pressed"
-      },
-      {
-        "from_button_id": "button.menu_ok",
-        "to_button_id": "button.coalesce_stack",
-        "mapping_type": "double_pressed"
-      },
-      {
-        "to_button_id": "button.container_slot_hovered",
-        "mapping_type": "pressed"
-      }
-    ]
-  },
-
   "furnace_output_panel": {
     "type": "panel",
     "size": [ "50%", "100%" ],
@@ -217,9 +158,7 @@
           "$item_collection_name": "furnace_output_items",
           "$focus_id": "furnace_output_item",
           "$focus_override_right": "FOCUS_OVERRIDE_STOP",
-          "$focus_override_left": "furnace_fuel_item",
-
-          "$button_ref": "furnace.furnace_output_slot_button"
+          "$focus_override_left": "furnace_fuel_item"
         }
       }
     ]
@@ -232,8 +171,8 @@
     "anchor_to": "top_left",
     "anchor_from": "top_left",
     "controls": [
-      { "furnace_label@furnace_label": {} },
-      { "input@furnace_input_panel": {} },
+      { "furnace_label@furnace_label": { } },
+      { "input@furnace_input_panel": { } },
       {
         "furnace_arrow_empty_image@furnace_arrow_empty_image": {
           "anchor_to": "center",
@@ -246,7 +185,7 @@
           "anchor_from": "center"
         }
       },
-      { "output@furnace_output_panel": {} }
+      { "output@furnace_output_panel": { } }
     ]
   },
 
@@ -290,11 +229,13 @@
       {
         "requires": "$desktop_screen",
         "$screen_content": "furnace.furnace_panel",
-        "$screen_bg_content": "common.screen_background"
+        "$screen_bg_content": "common.screen_background",
+        "$gamepad_cursor": true
       },
       {
         "requires": "$pocket_screen",
-        "$screen_content": "furnace_pocket.furnace_panel"
+        "$screen_content": "furnace_pocket.furnace_panel",
+        "$gamepad_cursor": false
       }
     ]
   }
