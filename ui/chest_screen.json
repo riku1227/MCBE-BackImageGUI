@@ -27,6 +27,11 @@
         "requires": "($chest_bg = replace)",
         "$chest_layer": -1,
         "$chest_alpha": 1
+      },
+      {
+        "requires": "($chest_bg = overlay)",
+        "$chest_layer": 2,
+        "$chest_alpha": 0.6
       }
     ]
   },
@@ -43,6 +48,11 @@
         "requires": "($large_chest_bg = replace)",
         "$large_chest_layer": -1,
         "$large_chest_alpha": 1
+      },
+      {
+        "requires": "($large_chest_bg = overlay)",
+        "$large_chest_layer": 2,
+        "$large_chest_alpha": 0.6
       }
     ]
   },
