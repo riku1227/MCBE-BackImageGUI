@@ -3,8 +3,33 @@
 +*   (c) Microsoft. All rights reserved.                   *
 +*********************************************************/
 
+/*
+  BackImageGUI v1.3.0
+  Base json version v1.2.10.2
+  Download: https://riku1227.github.io/html/distributions/backimage_gui.html
+  SourceCode: https://github.com/riku1227/MCBE-BackImageGUI
+  Twitter: https://twitter.com/_riku1227_
+  Google+: https://plus.google.com/103470090583882439463
+*/
+
 {
   "namespace": "enchanting",
+
+  //Edit_BIGUI
+  "enchanting_screen_bg": {
+    "type": "image",
+    "layer": "$enchanting_layer",
+    "size": [ "100%", "100%" ],
+    "alpha": "$enchanting_alpha",
+    "texture": "textures/backimagegui/enchanting_table",
+    "variables": [
+      {
+        "requires": "($enchanting_bg = replace)",
+        "$enchanting_layer": -1,
+        "$enchanting_alpha": 1
+      }
+    ]
+  },
 
   "enchanting_image": {
     "type": "image"
@@ -248,7 +273,11 @@
     "size": [ "100%", "33.333333%" ],
     "layer": 7,
     "controls": [
-      { "dark_background@dark_background": { } },
+      {
+        "dark_background@dark_background": {
+          "ignored": "($enchanting_bg = replace)"
+        } //Edit_BIGUI
+      },
       { "unselectable_button@unselectable_button": { } },
       { "selectable_button@selectable_button": { } }
     ]
@@ -292,7 +321,13 @@
             {
               "item_slot@common.container_item": {
                 "grid_position": [ 0, 0 ],
-                "$item_collection_name": "enchanting_input_items"
+                "$item_collection_name": "enchanting_input_items",
+                "variables": [
+                  {
+                    "requires": "($enchanting_bg = replace)",
+                    "$background_images": ""
+                  }
+                ] //Edit_BIGUI
               }
             }
           ]
@@ -304,18 +339,24 @@
           "grid_dimensions": [ 1, 1 ],
           "anchor_from": "left_middle",
           "anchor_to": "left_middle",
-          "offset": [ 33, 14 ],
+          "offset": [ 33.5, 12.5 ], //Edit_BIGUI
           "size": [18, 18],
           "collection_name": "enchanting_lapis_items",
           "controls": [
             {
               "lapis@common.container_item": {
                 "grid_position": [ 0, 0 ],
-                "$cell_overlay_ref": "enchanting.lapis_image",
+                //"$cell_overlay_ref": "enchanting.lapis_image", //Edit_BIGUI
                 "$item_collection_name": "enchanting_lapis_items",
 
                 "$focus_id_binding_type": "none",
-                "$focus_id": "enchanting_lapis"
+                "$focus_id": "enchanting_lapis",
+                "variables": [
+                  {
+                    "requires": "($enchanting_bg = replace)",
+                    "$background_images": ""
+                  }
+                ] //Edit_BIGUI
               }
             }
           ]
@@ -331,6 +372,7 @@
           "controls": [
             {
               "indent@common.cell_image": {
+                "ignored": "($enchanting_bg = replace)", //Edit_BIGUI
                 "size": [ "100%+2px", "100%+2px" ]
               }
             },
@@ -344,6 +386,7 @@
             {
               "enchantments_grid": {
                 "type": "grid",
+                "offset":[-1,0], //Edit_BIGUI
                 "collection_name": "#enchant_buttons",
                 "size": [ "100%", "100%" ],
                 "layer": 2,
@@ -380,8 +423,31 @@
                 "layer": 5,
                 "controls": [
                   { "enchanting_panel_top_half@enchanting.enchanting_panel_top_half": {} },
-                  { "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {} },
-                  { "hotbar_grid@common.hotbar_grid_template": {} },
+                  {
+                    "enchanting_screen_bg@enchanting.enchanting_screen_bg": {}
+                  }, //Edit_BIGUI
+                  {
+                    "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {
+                      "offset":[0,-3], //Edit_BIGUI
+                      "variables": [
+                        {
+                          "requires": "($enchanting_bg = replace)",
+                          "$background_images": "" //Edit_BIGUI
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "hotbar_grid@common.hotbar_grid_template": {
+                      "offset":[0,-7], //Edit_BIGUI
+                      "variables": [
+                        {
+                          "requires": "($enchanting_bg = replace)",
+                          "$background_images": "" //Edit_BIGUI
+                        }
+                      ]
+                    }
+                  },
                   { "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": {} }
                 ]
               }
