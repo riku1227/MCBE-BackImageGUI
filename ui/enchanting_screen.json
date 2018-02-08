@@ -27,6 +27,16 @@
         "requires": "($enchanting_bg = replace)",
         "$enchanting_layer": -1,
         "$enchanting_alpha": 1
+      },
+      {
+        "requires": "($enchanting_bg = overlay)",
+        "$enchanting_layer": 2,
+        "$enchanting_alpha": 0.6
+      },
+      {
+        "requires": "($enchanting_bg = background)",
+        "$enchanting_layer": 1,
+        "$enchanting_alpha": 1
       }
     ]
   },
@@ -275,7 +285,7 @@
     "controls": [
       {
         "dark_background@dark_background": {
-          "ignored": "($enchanting_bg = replace)"
+          "ignored": "($enchanting_bg = replace or $enchanting_bg = overlay)"
         } //Edit_BIGUI
       },
       { "unselectable_button@unselectable_button": { } },
@@ -424,7 +434,9 @@
                 "controls": [
                   { "enchanting_panel_top_half@enchanting.enchanting_panel_top_half": {} },
                   {
-                    "enchanting_screen_bg@enchanting.enchanting_screen_bg": {}
+                    "enchanting_screen_bg@enchanting.enchanting_screen_bg": {
+                      "ignored": "($enchanting_bg = disable or $enchanting_bg = background)"
+                    }
                   }, //Edit_BIGUI
                   {
                     "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {
@@ -456,7 +468,12 @@
             { "gamepad_cursor@common.gamepad_cursor_button": {} }
           ]
         }
-      }
+      },
+      {
+        "enchanting_screen_bg@enchanting.enchanting_screen_bg": {
+          "ignored": "(not ($enchanting_bg = background))"
+        }
+      } //Edit_BIGUI
     ]
   },
   "enchanting_screen@common.inventory_screen_common": {
