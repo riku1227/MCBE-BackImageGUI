@@ -32,6 +32,11 @@
         "requires": "($chest_bg = overlay)",
         "$chest_layer": 2,
         "$chest_alpha": 0.6
+      },
+      {
+        "requires": "($chest_bg = background)",
+        "$chest_layer": 1,
+        "$chest_alpha": 1
       }
     ]
   },
@@ -53,6 +58,11 @@
         "requires": "($large_chest_bg = overlay)",
         "$large_chest_layer": 2,
         "$large_chest_alpha": 0.6
+      },
+      {
+        "requires": "($large_chest_bg = background)",
+        "$large_chest_layer": 1,
+        "$large_chest_alpha": 1
       }
     ]
   },
@@ -180,7 +190,11 @@
                       "offset": [0, 5.5] //Edit_BIGUI
                     }
                   },
-                  { "chest_screen_bg@chest.chest_screen_bg": {} }, //Edit_BIGUI
+                  {
+                    "chest_screen_bg@chest.chest_screen_bg": {
+                      "ignored": "($chest_bg = disable or $chest_bg = background)"
+                    }
+                  }, //Edit_BIGUI
                   {
                     "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {
                       "offset":[0,-3], //Edit_BIGUI
@@ -211,7 +225,12 @@
             { "gamepad_cursor@common.gamepad_cursor_button": {} }
           ]
         }
-      }
+      },
+      {
+        "chest_screen_bg@chest.chest_screen_bg": {
+          "ignored": "(not ($chest_bg = background))"
+        }
+      } //Edit_BIGUI
     ]
   },
 
@@ -241,7 +260,9 @@
                     }
                   },
                   {
-                    "large_chest_screen_bg@chest.large_chest_screen_bg": {}
+                    "large_chest_screen_bg@chest.large_chest_screen_bg": {
+                      "ignored": "($large_chest_bg = disable or $large_chest_bg = background)"
+                    }
                   }, //Edit_BIGUI
                   {
                     "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {
@@ -273,7 +294,12 @@
             { "gamepad_cursor@common.gamepad_cursor_button": {} }
           ]
         }
-      }
+      },
+      {
+        "large_chest_screen_bg@chest.large_chest_screen_bg": {
+          "ignored": "(not ($large_chest_bg = background))"
+        }
+      } //Edit_BIGUI
     ]
   },
 
