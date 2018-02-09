@@ -22,6 +22,11 @@
         "requires": "($furnace_bg = replace)",
         "$furnace_layer": -1,
         "$furnace_alpha": 1
+      },
+      {
+        "requires": "($furnace_bg = overlay)",
+        "$furnace_layer": 2,
+        "$furnace_alpha": 0.6
       }
     ]
   },
