@@ -27,6 +27,11 @@
         "requires": "($furnace_bg = overlay)",
         "$furnace_layer": 2,
         "$furnace_alpha": 0.6
+      },
+      {
+        "requires": "($furnace_bg = background)",
+        "$furnace_layer": 1,
+        "$furnace_alpha": 1
       }
     ]
   },
@@ -261,7 +266,9 @@
                 "controls": [
                   { "furnace_panel_top_half@furnace.furnace_panel_top_half": {} },
                   {
-                    "furnace_screen_bg@furnace.furnace_screen_bg": {}
+                    "furnace_screen_bg@furnace.furnace_screen_bg": {
+                      "ignored": "($furnace_bg = disable or $furnace_bg = background)"
+                    }
                   }, //Edit_BIGUI
                   {
                     "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {
@@ -292,6 +299,11 @@
             { "inventory_selected_icon_button@common.inventory_selected_icon_button": {} },
             { "gamepad_cursor@common.gamepad_cursor_button": {} }
           ]
+        }
+      },
+      {
+        "furnace_screen_bg@furnace.furnace_screen_bg": {
+          "ignored": "(not ($furnace_bg = background))"
         }
       }
     ]
