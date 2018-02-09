@@ -9,5 +9,7 @@
   "$anvil_bg": "replace",
   "$brewing_stand_bg": "replace",
   "$chest_bg": "replace",
-  "$large_chest_bg": "replace"
+  "$large_chest_bg": "replace",
+  "$enchanting_bg": "replace",
+  "$furnace_bg": "replace"
 }

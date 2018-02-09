@@ -1,6 +1,30 @@
+/*
+  BackImageGUI v1.3.0
+  Base json version v1.2.10.2
+  Download: https://riku1227.github.io/html/distributions/backimage_gui.html
+  SourceCode: https://github.com/riku1227/MCBE-BackImageGUI
+  Twitter: https://twitter.com/_riku1227_
+  Google+: https://plus.google.com/103470090583882439463
+*/
+
 {
   "namespace": "furnace",
 
+  //Edit_BIGUI
+  "furnace_screen_bg": {
+    "type": "image",
+    "layer": "$furnace_layer",
+    "size": [ "100%", "100%" ],
+    "alpha": "$furnace_alpha",
+    "texture": "textures/backimagegui/furnace",
+    "variables": [
+      {
+        "requires": "($furnace_bg = replace)",
+        "$furnace_layer": -1,
+        "$furnace_alpha": 1
+      }
+    ]
+  },
 
   //---------------------------------------------------------------------------
   // Furnace
@@ -83,6 +107,7 @@
   "furnace_input_panel": {
     "type": "panel",
     "size": [ "50%", "100%" ],
+    "offset": [4.5, 0], //Edit_BIGUI
     "anchor_from": "top_left",
     "anchor_to": "top_left",
     "controls": [
@@ -116,7 +141,13 @@
           "$item_collection_name": "furnace_ingredient_items",
           "$focus_id": "furnace_ingredient_item",
           "$focus_override_left": "FOCUS_OVERRIDE_STOP",
-          "$focus_override_up": "FOCUS_OVERRIDE_STOP"
+          "$focus_override_up": "FOCUS_OVERRIDE_STOP",
+          "variables": [
+            {
+              "requires": "($furnace_bg = replace)",
+              "$background_images": ""
+            }
+          ] //Edit_BIGUI
         }
       }
     ]
@@ -125,6 +156,7 @@
   "furnace_fuel_panel": {
     "type": "panel",
     "size": [ 18, 18 ],
+    "offset": [ -20, -17.5 ], //Edit_BIGUI
     "offset": [ -20, 19 ],
     "anchor_from": "right_middle",
     "anchor_to": "right_middle",
@@ -136,7 +168,13 @@
           "$item_collection_name": "furnace_fuel_items",
           "$focus_id": "furnace_fuel_item",
           "$focus_override_right": "furnace_output_item",
-          "$focus_override_left": "FOCUS_OVERRIDE_STOP"
+          "$focus_override_left": "FOCUS_OVERRIDE_STOP",
+          "variables": [
+            {
+              "requires": "($furnace_bg = replace)",
+              "$background_images": ""
+            }
+          ] //Edit_BIGUI
         }
       }
     ]
@@ -145,6 +183,7 @@
   "furnace_output_panel": {
     "type": "panel",
     "size": [ "50%", "100%" ],
+    "offset": [ -20, 18 ], //Edit_BIGUI
     "anchor_from": "top_right",
     "anchor_to": "top_right",
     "controls": [
@@ -158,7 +197,13 @@
           "$item_collection_name": "furnace_output_items",
           "$focus_id": "furnace_output_item",
           "$focus_override_right": "FOCUS_OVERRIDE_STOP",
-          "$focus_override_left": "furnace_fuel_item"
+          "$focus_override_left": "furnace_fuel_item",
+          "variables": [
+            {
+              "requires": "($furnace_bg = replace)",
+              "$background_images": ""
+            }
+          ] //Edit_BIGUI
         }
       }
     ]
@@ -176,13 +221,15 @@
       {
         "furnace_arrow_empty_image@furnace_arrow_empty_image": {
           "anchor_to": "center",
-          "anchor_from": "center"
+          "anchor_from": "center",
+          "offset": [ 3,0] //Edit_BIGUI
         }
       },
       {
         "furnace_arrow_full_image@furnace_arrow_full_image": {
           "anchor_to": "center",
-          "anchor_from": "center"
+          "anchor_from": "center",
+          "offset": [ 3,0] //Edit_BIGUI
         }
       },
       { "output@furnace_output_panel": { } }
@@ -209,8 +256,31 @@
                 "layer": 5,
                 "controls": [
                   { "furnace_panel_top_half@furnace.furnace_panel_top_half": {} },
-                  { "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {} },
-                  { "hotbar_grid@common.hotbar_grid_template": {} },
+                  {
+                    "furnace_screen_bg@furnace.furnace_screen_bg": {}
+                  }, //Edit_BIGUI
+                  {
+                    "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {
+                      "offset":[0,-3], //Edit_BIGUI
+                      "variables": [
+                        {
+                          "requires": "($furnace_bg = replace)",
+                          "$background_images": "" //Edit_BIGUI
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "hotbar_grid@common.hotbar_grid_template": {
+                      "offset":[0,-7], //Edit_BIGUI
+                      "variables": [
+                        {
+                          "requires": "($furnace_bg = replace)",
+                          "$background_images": "" //Edit_BIGUI
+                        }
+                      ]
+                    }
+                  },
                   { "inventory_take_progress_icon_button@common.inventory_take_progress_icon_button": {} }
                 ]
               }
