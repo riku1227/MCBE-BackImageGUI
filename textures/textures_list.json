@@ -4,5 +4,7 @@
   "textures/backimagegui/chest",
   "textures/backimagegui/large_chest",
   "textures/backimagegui/enchanting_table",
-  "textures/backimagegui/furnace"
+  "textures/backimagegui/furnace",
+  "textures/backimagegui/crafting_table",
+  "textures/backimagegui/inventory"
 ]
