@@ -11,5 +11,7 @@
   "$chest_bg": "replace",
   "$large_chest_bg": "replace",
   "$enchanting_bg": "replace",
-  "$furnace_bg": "replace"
+  "$furnace_bg": "replace",
+  "$crafting_bg": "replace",
+  "$inventory_bg": "replace"
 }

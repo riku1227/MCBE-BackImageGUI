@@ -1,5 +1,56 @@
+/*
+  BackImageGUI v1.3.0
+  Base json version v1.2.10.2
+  Download: https://riku1227.github.io/html/distributions/backimage_gui.html
+  SourceCode: https://github.com/riku1227/MCBE-BackImageGUI
+  Twitter: https://twitter.com/_riku1227_
+  Google+: https://plus.google.com/103470090583882439463
+*/
+
 {
   "namespace": "crafting",
+
+  //Edit_BIGUI
+  "crafting_screen_bg": {
+    "type": "image",
+    "layer": "$crafting_layer",
+    "size": [ "100%", "100%" ],
+    "alpha": "$crafting_alpha",
+    "texture": "textures/backimagegui/crafting_table",
+    "variables": [
+      {
+        "requires": "($crafting_bg = replace)",
+        "$crafting_layer": 2,
+        "$crafting_alpha": 1
+      },
+      {
+        "requires": "($crafting_bg = overlay)",
+        "$crafting_layer": 5,
+        "$crafting_alpha": 0.6
+      }
+    ]
+  },
+
+  //Edit_BIGUI
+  "inventory_screen_bg": {
+    "type": "image",
+    "layer": "$inventory_layer",
+    "size": [ "100%", "100%" ],
+    "alpha": "$inventory_alpha",
+    "texture": "textures/backimagegui/inventory",
+    "variables": [
+      {
+        "requires": "($inventory_bg = replace)",
+        "$inventory_layer": 2,
+        "$inventory_alpha": 1
+      },
+      {
+        "requires": "($inventory_bg = overlay)",
+        "$inventory_layer": 5,
+        "$inventory_alpha": 0.6
+      }
+    ]
+  },
 
   //---------------------------------------------------------------------------
   // Common
@@ -768,13 +819,23 @@
       {
         "player_bg": {
           "type": "image",
-          "texture": "textures/ui/Black",
+          //"texture": "textures/ui/Black", //Edit_BIGUI
           "size": [ 52, 70 ],
           "layer": 2,
           "anchor_from": "top_left",
           "anchor_to": "top_left",
           "offset": [ 26, 8 ],
           "controls": [
+            //Edit_BIGUI
+            {
+              "player_background": {
+                "ignored": "($inventory_bg = replace or $inventory_bg = overlay)",
+                "type": "image",
+                "texture": "textures/ui/Black",
+                "size": [ 52, 70 ],
+                "layer": 0
+              }
+            },
             {
               "player_renderer": {
                 "type": "custom",
@@ -783,7 +844,7 @@
                   "#look_at_cursor": true
                 },
                 "size": [ 30, 30 ],
-                "layer": 1,
+                "layer": 2, //Edit_BIGUI
                 "anchor_from": "center",
                 "anchor_to": "center",
                 "offset": [ 15, 0 ]
@@ -796,6 +857,7 @@
         "player_preview_border": {
           "type": "image",
           "texture": "textures/ui/player_preview_border",
+          "ignored": "($inventory_bg = replace)", //Edit_BIGUI
           "size": [ 54, 72 ],
           "layer": 1,
           "anchor_from": "top_left",
@@ -806,7 +868,7 @@
       {
         "armor_grid": {
           "type": "grid",
-          "layer": 1,
+          "layer": 0, //Edit_BIGUI
           "size": [ 18, 72 ],
           "anchor_from": "top_left",
           "anchor_to": "top_left",
@@ -826,7 +888,13 @@
                 "$focus_id": "armor_item_head",
 
                 "$focus_override_right_binding_type": "none",
-                "$focus_override_right": "crafting_input_top_left"
+                "$focus_override_right": "crafting_input_top_left",
+                "variables": [
+                  {
+                    "requires": "($inventory_bg = replace)",
+                    "$background_images": ""
+                  }
+                ] //Edit_BIGUI
               }
             },
             {
@@ -840,7 +908,13 @@
                 "$focus_id": "armor_item_chest",
 
                 "$focus_override_right_binding_type": "none",
-                "$focus_override_right": "crafting_input_top_left"
+                "$focus_override_right": "crafting_input_top_left",
+                "variables": [
+                  {
+                    "requires": "($inventory_bg = replace)",
+                    "$background_images": ""
+                  }
+                ] //Edit_BIGUI
               }
             },
             {
@@ -854,7 +928,13 @@
                 "$focus_id": "armor_item_legs",
 
                 "$focus_override_right_binding_type": "none",
-                "$focus_override_right": "crafting_input_mid_left"
+                "$focus_override_right": "crafting_input_mid_left",
+                "variables": [
+                  {
+                    "requires": "($inventory_bg = replace)",
+                    "$background_images": ""
+                  }
+                ] //Edit_BIGUI
               }
             },
             {
@@ -868,7 +948,13 @@
                 "$focus_id": "armor_item_feet",
 
                 "$focus_override_right_binding_type": "none",
-                "$focus_override_right": "offhand_items0"
+                "$focus_override_right": "offhand_items0",
+                "variables": [
+                  {
+                    "requires": "($inventory_bg = replace)",
+                    "$background_images": ""
+                  }
+                ] //Edit_BIGUI
               }
             }
           ]
@@ -877,11 +963,11 @@
       {
         "offhand_grid": {
           "type": "grid",
-          "layer": 1,
+          "layer": 0, //Edit_BIGUI
           "size": [ 18, 18 ],
           "anchor_from": "top_left",
           "anchor_to": "top_left",
-          "offset": [ 79, 61 ],
+          "offset": [ 76, 60 ], //Edit_BIGUI
           "grid_dimensions": [ 1, 1 ],
           "$item_collection_name": "offhand_items",
           "collection_name": "$item_collection_name",
@@ -894,7 +980,13 @@
                 "$slot_selected_binding_name": "#slot_selected_touch",
 
                 "$focus_override_left_binding_type": "none",
-                "$focus_override_left": "armor_item_feet"
+                "$focus_override_left": "armor_item_feet",
+                "variables": [
+                  {
+                    "requires": "($inventory_bg = replace)",
+                    "$background_images": ""
+                  }
+                ] //Edit_BIGUI
               }
             }
           ]
@@ -946,6 +1038,15 @@
   "crafting_input_grid_item@crafting.inventory_container_item": {
     "$item_collection_name": "crafting_input_items",
     "$background_images": "crafting.crafting_container_cell_images",
+    "$item_renderer_binding_condition": "always",
+    "$button_ref": "crafting.inventory_container_slot_button",
+    "$slot_selected_binding_name": "#slot_selected_touch"
+  },
+
+  //Edit_BIGUI
+  "inventory_crafting_input_grid_item@crafting.inventory_container_item": {
+    "$item_collection_name": "crafting_input_items",
+    "$background_images": "crafting.inventory_container_cell_images",
     "$item_renderer_binding_condition": "always",
     "$button_ref": "crafting.inventory_container_slot_button",
     "$slot_selected_binding_name": "#slot_selected_touch"
@@ -1034,7 +1135,7 @@
 
     "controls": [
       {
-        "crafting_input_item_top_left@crafting.crafting_input_grid_item": {
+        "crafting_input_item_top_left@crafting.inventory_crafting_input_grid_item": { //Edit_BIGUI
           "grid_position": [ 0, 0 ],
 
           "$focus_id_binding_type": "none",
@@ -1045,7 +1146,7 @@
         }
       },
       {
-        "crafting_input_item_top_right@crafting.crafting_input_grid_item": {
+        "crafting_input_item_top_right@crafting.inventory_crafting_input_grid_item": { //Edit_BIGUI
           "grid_position": [ 1, 0 ],
 
           "$focus_id_binding_type": "none",
@@ -1056,7 +1157,7 @@
         }
       },
       {
-        "crafting_input_item_bot_left@crafting.crafting_input_grid_item": {
+        "crafting_input_item_bot_left@crafting.inventory_crafting_input_grid_item": { //Edit_BIGUI
           "grid_position": [ 0, 1 ],
 
           "$focus_id_binding_type": "none",
@@ -1067,7 +1168,7 @@
         }
       },
       {
-        "crafting_input_item_bot_right@crafting.crafting_input_grid_item": {
+        "crafting_input_item_bot_right@crafting.inventory_crafting_input_grid_item": { //Edit_BIGUI
           "grid_position": [ 1, 1 ],
 
           "$focus_override_right_binding_type": "none",
@@ -1119,7 +1220,7 @@
         "work_bench_output@crafting.inventory_container_item": {
           "$item_collection_name": "crafting_output_items",
           "$button_ref": "crafting.output_no_coalesce_container_slot_button",
-          "$background_images": "crafting.crafting_container_cell_images",
+          "$background_images": "crafting.inventory_container_cell_images", //Edit_BIGUI
           "$item_renderer_binding_condition": "always",
           "$stack_count_binding_condition": "always",
 
@@ -1151,7 +1252,8 @@
       },
       {
         "crafting_arrow_large@crafting_arrow_large": {
-          "offset": [ 61, 35 ]
+          "offset": [ 61, 35 ],
+          "layer": 1 //Edit_BIGUI
         }
       },
       {
@@ -1216,6 +1318,7 @@
       {
         "crafting_arrow@crafting_arrow": {
           "offset": [ 46, 29 ],
+          "layer": 1, //Edit_BIGUI
           "bindings": [
             {
               "binding_type": "view",
@@ -1412,7 +1515,36 @@
     "type": "panel",
     "$cell_images_binding_condition|default": "visible",
     "controls": [
-      { "cell_classic@crafting.cell_image_classic": {} },
+      {
+        "cell_classic@crafting.cell_image_classic": {
+          "ignored": "($crafting_bg = replace)" //Edit_BIGUI
+        }
+      },
+      { "cell_normal@crafting.cell_image_normal": {} },
+      { "cell_invert@crafting.cell_image_invert": {} },
+      { "cell_red@crafting.cell_image_red": {} },
+      { "cell_selected@crafting.cell_image_selected": {} }
+    ],
+    "bindings": [
+      {
+        "binding_name": "#container_item_background",
+        "binding_type": "collection",
+        "binding_collection_name": "$item_collection_name",
+        "binding_condition": "$cell_images_binding_condition"
+      }
+    ]
+  },
+  
+  //Edit_BIGUI
+  "i_container_cell_images": {
+    "type": "panel",
+    "$cell_images_binding_condition|default": "visible",
+    "controls": [
+      {
+        "cell_classic@crafting.cell_image_classic": {
+          "ignored": "($inventory_bg = replace)" //Edit_BIGUI
+        }
+      },
       { "cell_normal@crafting.cell_image_normal": {} },
       { "cell_invert@crafting.cell_image_invert": {} },
       { "cell_red@crafting.cell_image_red": {} },
@@ -1429,6 +1561,11 @@
   },
 
   "crafting_container_cell_images@crafting.container_cell_images": {
+    "$cell_images_binding_condition": "always"
+  },
+
+  //Edit_BIGUI
+  "inventory_container_cell_images@crafting.i_container_cell_images": {
     "$cell_images_binding_condition": "always"
   },
 
@@ -1484,6 +1621,7 @@
 
   "cell_image_red@crafting.cell_image": {
     "texture": "textures/ui/cell_image_red",
+    "alpha": 0.45, //Edit_BIGUI
     "$cell_image_size|default": [ "default", "default" ],
     "size": "$cell_image_size",
     "bindings": [
@@ -1564,7 +1702,7 @@
 
   "inventory_container_item@common.container_item": {
     "$button_ref|default": "crafting.inventory_container_slot_button",
-    "$background_images|default": "crafting.container_cell_images",
+    "$background_images|default": "crafting.i_container_cell_images",
 
     "$overlay_images|default": "crafting.container_overlay_images",
     "$overlay_image_control_name|default": "overlay",
@@ -1937,23 +2075,90 @@
       },
       {
         "inventory_panel_top_half@$top_half_variant": {
-          "layer": 2
+          "layer": 2,
+          "variables": [
+            {
+              "requires": "($inventory_bg = replace)",
+              "$background_images": ""
+            }
+          ] //Edit_BIGUI
+        }
+      },
+      //Edit_BIGUI
+      {
+        "inventory_screen_bg@crafting.inventory_screen_bg": {
+          "ignored": "($top_half_variant = crafting.crafting_panel_top_half or $inventory_bg = disable or $inventory_bg = background)"
+        }
+      },
+      //Edit_BIGUI
+      {
+        "crafting_screen_bg@crafting.crafting_screen_bg": {
+          "ignored": "($top_half_variant = crafting.survival_panel_top_half or $inventory_bg = disable or $inventory_bg = background)"
         }
       },
       {
         "inventory_panel_bottom_half@common.inventory_panel_bottom_half": {
           "layer": 2,
           "$button_ref": "crafting.inventory_container_slot_button",
-          "$slot_selected_binding_name": "#slot_selected_touch"
+          "$slot_selected_binding_name": "#slot_selected_touch",
+          "ignored": "($top_half_variant = crafting.crafting_panel_top_half)", //Edit_BIGUI
+          "offset":[0,-3], //Edit_BIGUI
+          "variables": [
+            {
+              "requires": "($inventory_bg = replace)",
+              "$background_images": ""
+            }
+          ] //Edit_BIGUI
         }
       },
       {
         "hotbar_grid@common.hotbar_grid_template": {
           "layer": 2,
           "$button_ref": "crafting.inventory_container_slot_button",
-          "$slot_selected_binding_name": "#slot_selected_touch"
+          "$slot_selected_binding_name": "#slot_selected_touch",
+          "ignored": "($top_half_variant = crafting.crafting_panel_top_half)", //Edit_BIGUI
+          "offset":[0,-7], //Edit_BIGUI
+          "variables": [
+            {
+              "requires": "($inventory_bg = replace)",
+              "$background_images": ""
+            }
+          ] //Edit_BIGUI
         }
-      }
+      },
+
+      //Edit_BIGUI
+      {
+        "crafting_inventory_panel_bottom_half@common.inventory_panel_bottom_half": {
+          "layer": 2,
+          "$button_ref": "crafting.inventory_container_slot_button",
+          "$slot_selected_binding_name": "#slot_selected_touch",
+          "ignored": "($top_half_variant = crafting.survival_panel_top_half)",
+          "offset":[0,-3],
+          "variables": [
+            {
+              "requires": "($crafting_bg = replace)",
+              "$background_images": ""
+            }
+          ]
+        }
+      },
+      {
+        "crafting_hotbar_grid@common.hotbar_grid_template": {
+          "layer": 2,
+          "$button_ref": "crafting.inventory_container_slot_button",
+          "$slot_selected_binding_name": "#slot_selected_touch",
+          "ignored": "($top_half_variant = crafting.survival_panel_top_half)",
+          "offset":[0,-7],
+          "variables": [
+            {
+              "requires": "($crafting_bg = replace)",
+              "$background_images": ""
+            }
+          ]
+        }
+      } //Edit_BIGUI
+
     ]
   },
 
@@ -2464,6 +2669,19 @@
               }
             }
           ]
+        }
+      },
+
+      //Edit_BIGUI
+      {
+        "inventory_screen_bg@crafting.inventory_screen_bg": {
+          "ignored": "($top_half_variant = crafting.crafting_panel_top_half or (not ($inventory_bg = background)))"
+        }
+      },
+      //Edit_BIGUI
+      {
+        "crafting_screen_bg@crafting.crafting_screen_bg": {
+          "ignored": "($top_half_variant = crafting.survival_panel_top_half or (not ($inventory_bg = background)))"
         }
       },
 
