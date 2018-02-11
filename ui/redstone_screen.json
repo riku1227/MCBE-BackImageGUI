@@ -20,8 +20,13 @@
     "variables": [
       {
         "requires": "($hopper_bg = replace)",
-        "$hopper_layer": 1,
+        "$hopper_layer": -1,
         "$hopper_alpha": 1
+      },
+      {
+        "requires": "($hopper_bg = overlay)",
+        "$hopper_layer": 2,
+        "$hopper_alpha": 0.6
       }
     ]
   },
@@ -36,8 +41,13 @@
     "variables": [
       {
         "requires": "($dispenser_bg = replace)",
-        "$dispenser_layer": 1,
+        "$dispenser_layer": -1,
         "$dispenser_alpha": 1
+      },
+      {
+        "requires": "($dispenser_bg = overlay)",
+        "$dispenser_layer": 2,
+        "$dispenser_alpha": 0.6
       }
     ]
   },
@@ -52,8 +62,13 @@
     "variables": [
       {
         "requires": "($dropper_bg = replace)",
-        "$dropper_layer": 1,
+        "$dropper_layer": -1,
         "$dropper_alpha": 1
+      },
+      {
+        "requires": "($dropper_bg = overlay)",
+        "$dropper_layer": 2,
+        "$dropper_alpha": 0.6
       }
     ]
   },
@@ -121,29 +136,30 @@
           "size": "$screen_dimensions",
           "controls": [
             { "common_panel@common.common_panel": {} },
-            //Edit_BIGUI
-            {
-              "hopper_screen_bg@redstone.hopper_screen_bg": {
-                "ignored": "(not ($screen_label = redstone.hopper_label))"
-              }
-            },
-            //Edit_BIGUI
-            {
-              "dispenser_screen_bg@redstone.dispenser_screen_bg": {
-                "ignored": "(not ($screen_label = redstone.dispenser_label))"
-              }
-            },
-            //Edit_BIGUI
-            {
-              "dropper_screen_bg@redstone.dropper_screen_bg": {
-                "ignored": "(not ($screen_label = redstone.dropper_label))"
-              }
-            },
             {
               "redstone_screen_inventory": {
                 "type": "panel",
                 "layer": 5,
                 "controls": [
+                  //Edit_BIGUI
+                  {
+                    "hopper_screen_bg@redstone.hopper_screen_bg": {
+                      "ignored": "(not ($screen_label = redstone.hopper_label))"
+                    }
+                  },
+                  //Edit_BIGUI
+                  {
+                    "dispenser_screen_bg@redstone.dispenser_screen_bg": {
+                      "ignored": "(not ($screen_label = redstone.dispenser_label))"
+                    }
+                  },
+                  //Edit_BIGUI
+                  {
+                    "dropper_screen_bg@redstone.dropper_screen_bg": {
+                      "ignored": "(not ($screen_label = redstone.dropper_label))"
+                    }
+                  },
+
                   //Edit_BIGUI
                   {
                     "hopper_red_panel@redstone.redstone_panel_top_half": {
