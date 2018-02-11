@@ -22,6 +22,16 @@
         "requires": "($trade_bg = replace)",
         "$trade_layer": 1,
         "$trade_alpha": 1
+      },
+      {
+        "requires": "($trade_bg = overlay)",
+        "$trade_layer": 3,
+        "$trade_alpha": 0.6
+      },
+      {
+        "requires": "($trade_bg = background)",
+        "$trade_layer": 1,
+        "$trade_alpha": 1
       }
     ]
   },
@@ -478,7 +488,11 @@
                 "type": "panel",
                 "controls": [
                   { "top_half_panel@trade.top_half_panel": {} },
-                  { "trade_screen_bg@trade.trade_screen_bg": {} }, //Edit_BIGUI
+                  {
+                    "trade_screen_bg@trade.trade_screen_bg": {
+                      "ignored": "($trade_bg = disable or $trade_bg = background)"
+                    }
+                  }, //Edit_BIGUI
                   {
                     "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {
                       "offset":[0,-3], //Edit_BIGUI
@@ -508,7 +522,12 @@
             }
           ]
         }
-      }
+      },
+      {
+        "trade_screen_bg@trade.trade_screen_bg": {
+          "ignored": "(not ($trade_bg = background))"
+        }
+      } //Edit_BIGUI
     ]
   },
 
