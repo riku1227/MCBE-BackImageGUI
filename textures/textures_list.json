@@ -9,5 +9,6 @@
   "textures/backimagegui/inventory",
   "textures/backimagegui/hopper",
   "textures/backimagegui/dispenser",
-  "textures/backimagegui/dropper"
+  "textures/backimagegui/dropper",
+  "textures/backimagegui/trade"
 ]
