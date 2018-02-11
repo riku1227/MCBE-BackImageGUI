@@ -1,5 +1,30 @@
+/*
+  BackImageGUI v1.3.0
+  Base json version v1.2.10.2
+  Download: https://riku1227.github.io/html/distributions/backimage_gui.html
+  SourceCode: https://github.com/riku1227/MCBE-BackImageGUI
+  Twitter: https://twitter.com/_riku1227_
+  Google+: https://plus.google.com/103470090583882439463
+*/
+
 {
   "namespace": "trade",
+
+  //Edit_riku1227
+  "trade_screen_bg": {
+    "type": "image",
+    "layer": "$trade_layer",
+    "size": [ "100%", "100%" ],
+    "alpha": "$trade_alpha",
+    "texture": "textures/backimagegui/trade",
+    "variables": [
+      {
+        "requires": "($trade_bg = replace)",
+        "$trade_layer": 1,
+        "$trade_alpha": 1
+      }
+    ]
+  },
 
   //---------------------------------------------------------------------------
   // Common Controls
@@ -131,7 +156,7 @@
       {
         "item_renderer@common.item_renderer": {
           "size": [ 16, 16 ],
-          "layer": 1,
+          "layer": 5, //Edit_BIGUI
           "bindings": [
             {
               "binding_name": "#item_id_aux",
@@ -192,6 +217,12 @@
               "binding_name": "$focus_binding_name_right",
               "binding_name_override": "#focus_change_right"
             }
+          ],
+          "variables": [
+            {
+              "requires": "($trade_bg = replace)",
+              "$background_images": "" //Edit_BIGUI
+            }
           ]
         }
       }
@@ -218,7 +249,11 @@
     "layer": 2,
     "size": [ 26, 26 ],
     "controls": [
-      { "arrow_image@trade.arrow_image": {} },
+      {
+        "arrow_image@trade.arrow_image": {
+          "ignored": "($trade_bg = replace)" //Edit_BIGUI
+        }
+      },
       { "cross_out_icon@trade.cross_out_icon": { "layer": 2 } },
       { "recipe_button@trade.recipe_button": { "ignored": "$pocket_screen" } }
     ]
@@ -245,6 +280,7 @@
     "size": [ "84%", "90%" ],
     "anchor_from": "center",
     "anchor_to": "center",
+    "offset": [2,-3], //Edit_BIGUI
     "grid_dimensions": [ 4, 1 ],
     "controls": [
       {
@@ -413,7 +449,8 @@
           "text": "$villager_name",
           "anchor_from": "top_middle",
           "anchor_to": "top_middle",
-          "offset": [ 0, 5 ]
+          "offset": [ 0, 5 ],
+          "layer": 5 //Edit_BIGUI
         }
       },
       { "cycle_panel@trade.cycle_panel": {} },
@@ -441,8 +478,29 @@
                 "type": "panel",
                 "controls": [
                   { "top_half_panel@trade.top_half_panel": {} },
-                  { "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {} },
-                  { "hotbar_grid_template@common.hotbar_grid_template": {} },
+                  { "trade_screen_bg@trade.trade_screen_bg": {} }, //Edit_BIGUI
+                  {
+                    "inventory_panel_bottom_half_with_label@common.inventory_panel_bottom_half_with_label": {
+                      "offset":[0,-3], //Edit_BIGUI
+                      "variables": [
+                        {
+                          "requires": "($trade_bg = replace)",
+                          "$background_images": "" //Edit_BIGUI
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "hotbar_grid_template@common.hotbar_grid_template": {
+                      "offset":[0,-7], //Edit_BIGUI
+                      "variables": [
+                        {
+                          "requires": "($trade_bg = replace)",
+                          "$background_images": "" //Edit_BIGUI
+                        }
+                      ]
+                    }
+                  },
                   { "inventory_selected_icon_button@common.inventory_selected_icon_button": {} },
                   { "gamepad_cursor@common.gamepad_cursor_button": {} }
                 ]

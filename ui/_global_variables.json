@@ -16,5 +16,6 @@
   "$inventory_bg": "replace",
   "$hopper_bg": "replace",
   "$dispenser_bg": "replace",
-  "$dropper_bg": "replace"
+  "$dropper_bg": "replace",
+  "$trade_bg": "replace"
 }
