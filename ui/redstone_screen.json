@@ -27,6 +27,11 @@
         "requires": "($hopper_bg = overlay)",
         "$hopper_layer": 2,
         "$hopper_alpha": 0.6
+      },
+      {
+        "requires": "($hopper_bg = background)",
+        "$hopper_layer": 1,
+        "$hopper_alpha": 1
       }
     ]
   },
@@ -48,6 +53,11 @@
         "requires": "($dispenser_bg = overlay)",
         "$dispenser_layer": 2,
         "$dispenser_alpha": 0.6
+      },
+      {
+        "requires": "($dispenser_bg = background)",
+        "$dispenser_layer": 1,
+        "$dispenser_alpha": 1
       }
     ]
   },
@@ -69,6 +79,11 @@
         "requires": "($dropper_bg = overlay)",
         "$dropper_layer": 2,
         "$dropper_alpha": 0.6
+      },
+      {
+        "requires": "($dropper_bg = background)",
+        "$dropper_layer": 1,
+        "$dropper_alpha": 1
       }
     ]
   },
@@ -144,19 +159,19 @@
                   //Edit_BIGUI
                   {
                     "hopper_screen_bg@redstone.hopper_screen_bg": {
-                      "ignored": "(not ($screen_label = redstone.hopper_label))"
+                      "ignored": "(not ($screen_label = redstone.hopper_label) or ($hopper_bg = disable or $hopper_bg = background))"
                     }
                   },
                   //Edit_BIGUI
                   {
                     "dispenser_screen_bg@redstone.dispenser_screen_bg": {
-                      "ignored": "(not ($screen_label = redstone.dispenser_label))"
+                      "ignored": "(not ($screen_label = redstone.dispenser_label) or ($dispenser_bg = disable or $dispenser_bg = background))"
                     }
                   },
                   //Edit_BIGUI
                   {
                     "dropper_screen_bg@redstone.dropper_screen_bg": {
-                      "ignored": "(not ($screen_label = redstone.dropper_label))"
+                      "ignored": "(not ($screen_label = redstone.dropper_label) or ($dropper_bg = disable or $dropper_bg = background))"
                     }
                   },
 
@@ -285,6 +300,24 @@
             { "gamepad_cursor@common.gamepad_cursor_button": {} },
             { "$screen_label@$screen_label": {} }
           ]
+        }
+      },
+      //Edit_BIGUI
+      {
+        "hopper_screen_bg@redstone.hopper_screen_bg": {
+          "ignored": "(not ($screen_label = redstone.hopper_label) or (not ($hopper_bg = background)))"
+        }
+      },
+      //Edit_BIGUI
+      {
+        "dispenser_screen_bg@redstone.dispenser_screen_bg": {
+          "ignored": "(not ($screen_label = redstone.dispenser_label) or (not ($dispenser_bg = background)))"
+        }
+      },
+      //Edit_BIGUI
+      {
+        "dropper_screen_bg@redstone.dropper_screen_bg": {
+          "ignored": "(not ($screen_label = redstone.dropper_label) or (not ($dropper_bg = background)))"
         }
       }
     ]
