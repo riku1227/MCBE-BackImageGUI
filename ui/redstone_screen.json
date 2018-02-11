@@ -1,5 +1,63 @@
+/*
+  BackImageGUI v1.3.0
+  Base json version v1.2.10.2
+  Download: https://riku1227.github.io/html/distributions/backimage_gui.html
+  SourceCode: https://github.com/riku1227/MCBE-BackImageGUI
+  Twitter: https://twitter.com/_riku1227_
+  Google+: https://plus.google.com/103470090583882439463
+*/
+
 {
   "namespace": "redstone",
+
+  //Edit_BIGUI
+  "hopper_screen_bg": {
+    "type": "image",
+    "layer": "$hopper_layer",
+    "size": [ "100%", "100%" ],
+    "alpha": "$hopper_alpha",
+    "texture": "textures/backimagegui/hopper",
+    "variables": [
+      {
+        "requires": "($hopper_bg = replace)",
+        "$hopper_layer": 1,
+        "$hopper_alpha": 1
+      }
+    ]
+  },
+
+  //Edit_BIGUI
+  "dispenser_screen_bg": {
+    "type": "image",
+    "layer": "$dispenser_layer",
+    "size": [ "100%", "100%" ],
+    "alpha": "$dispenser_alpha",
+    "texture": "textures/backimagegui/dispenser",
+    "variables": [
+      {
+        "requires": "($dispenser_bg = replace)",
+        "$dispenser_layer": 1,
+        "$dispenser_alpha": 1
+      }
+    ]
+  },
+
+  //Edit_BIGUI
+  "dropper_screen_bg": {
+    "type": "image",
+    "layer": "$dropper_layer",
+    "size": [ "100%", "100%" ],
+    "alpha": "$dropper_alpha",
+    "texture": "textures/backimagegui/dropper",
+    "variables": [
+      {
+        "requires": "($dropper_bg = replace)",
+        "$dropper_layer": 1,
+        "$dropper_alpha": 1
+      }
+    ]
+  },
+
   //---------------------------------------------------------------------------
   // Screens
   //---------------------------------------------------------------------------
@@ -63,14 +121,146 @@
           "size": "$screen_dimensions",
           "controls": [
             { "common_panel@common.common_panel": {} },
+            //Edit_BIGUI
+            {
+              "hopper_screen_bg@redstone.hopper_screen_bg": {
+                "ignored": "(not ($screen_label = redstone.hopper_label))"
+              }
+            },
+            //Edit_BIGUI
+            {
+              "dispenser_screen_bg@redstone.dispenser_screen_bg": {
+                "ignored": "(not ($screen_label = redstone.dispenser_label))"
+              }
+            },
+            //Edit_BIGUI
+            {
+              "dropper_screen_bg@redstone.dropper_screen_bg": {
+                "ignored": "(not ($screen_label = redstone.dropper_label))"
+              }
+            },
             {
               "redstone_screen_inventory": {
                 "type": "panel",
                 "layer": 5,
                 "controls": [
-                  { "red_panel@redstone.redstone_panel_top_half": {} },
-                  { "red_bottom_half@common.inventory_panel_bottom_half_with_label": {} },
-                  { "hotbar_grid@common.hotbar_grid_template": {} },
+                  //Edit_BIGUI
+                  {
+                    "hopper_red_panel@redstone.redstone_panel_top_half": {
+                      "ignored": "(not ($screen_label = redstone.hopper_label))",
+                      "variables": [
+                        {
+                          "requires": "($hopper_bg = replace)",
+                          "$background_images": ""
+                        }
+                      ]
+                    }
+                  },
+                  //Edit_BIGUI
+                  {
+                    "dispenser_red_panel@redstone.redstone_panel_top_half": {
+                      "ignored": "(not ($screen_label = redstone.dispenser_label))",
+                      "variables": [
+                        {
+                          "requires": "($dispenser_bg = replace)",
+                          "$background_images": ""
+                        }
+                      ]
+                    }
+                  },
+                  //Edit_BIGUI
+                  {
+                    "dropper_red_panel@redstone.redstone_panel_top_half": {
+                      "ignored": "(not ($screen_label = redstone.dropper_label))",
+                      "variables": [
+                        {
+                          "requires": "($dropper_bg = replace)",
+                          "$background_images": ""
+                        }
+                      ]
+                    }
+                  },
+
+                  //Edit_BIGUI
+                  {
+                    "hopper_red_bottom_half@common.inventory_panel_bottom_half_with_label": {
+                      "ignored": "(not ($screen_label = redstone.hopper_label))",
+                      "offset":[0,-3],
+                      "variables": [
+                        {
+                          "requires": "($hopper_bg = replace)",
+                          "$background_images": ""
+                        }
+                      ]
+                    }
+                  },
+                  //Edit_BIGUI
+                  {
+                    "dispenser_red_bottom_half@common.inventory_panel_bottom_half_with_label": {
+                      "ignored": "(not ($screen_label = redstone.dispenser_label))",
+                      "offset":[0,-3],
+                      "variables": [
+                        {
+                          "requires": "($dispenser_bg = replace)",
+                          "$background_images": ""
+                        }
+                      ]
+                    }
+                  },
+                  //Edit_BIGUI
+                  {
+                    "dropper_red_bottom_half@common.inventory_panel_bottom_half_with_label": {
+                      "ignored": "(not ($screen_label = redstone.dropper_label))",
+                      "offset":[0,-3],
+                      "variables": [
+                        {
+                          "requires": "($dropper_bg = replace)",
+                          "$background_images": ""
+                        }
+                      ]
+                    }
+                  },
+
+                  //Edit_BIGUI
+                  {
+                    "hopper_hotbar_grid@common.hotbar_grid_template": {
+                      "ignored": "(not ($screen_label = redstone.hopper_label))",
+                      "offset":[0,-7],
+                      "variables": [
+                        {
+                          "requires": "($hopper_bg = replace)",
+                          "$background_images": ""
+                        }
+                      ]
+                    }
+                  },
+                  //Edit_BIGUI
+                  {
+                    "dispenser_hotbar_grid@common.hotbar_grid_template": {
+                      "ignored": "(not ($screen_label = redstone.dispenser_label))",
+                      "offset":[0,-7],
+                      "variables": [
+                        {
+                          "requires": "($dispenser_bg = replace)",
+                          "$background_images": ""
+                        }
+                      ]
+                    }
+                  },
+                  //Edit_BIGUI
+                  {
+                    "dropper_hotbar_grid@common.hotbar_grid_template": {
+                      "ignored": "(not ($screen_label = redstone.dropper_label))",
+                      "offset":[0,-7],
+                      "variables": [
+                        {
+                          "requires": "($dropper_bg = replace)",
+                          "$background_images": ""
+                        }
+                      ]
+                    }
+                  },
+
                   { "red_hold_icon@common.inventory_take_progress_icon_button": {} }
                 ]
               }

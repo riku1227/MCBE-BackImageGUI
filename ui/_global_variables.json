@@ -13,5 +13,8 @@
   "$enchanting_bg": "replace",
   "$furnace_bg": "replace",
   "$crafting_bg": "replace",
-  "$inventory_bg": "replace"
+  "$inventory_bg": "replace",
+  "$hopper_bg": "replace",
+  "$dispenser_bg": "replace",
+  "$dropper_bg": "replace"
 }
