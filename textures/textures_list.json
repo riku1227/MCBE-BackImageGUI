@@ -6,5 +6,8 @@
   "textures/backimagegui/enchanting_table",
   "textures/backimagegui/furnace",
   "textures/backimagegui/crafting_table",
-  "textures/backimagegui/inventory"
+  "textures/backimagegui/inventory",
+  "textures/backimagegui/hopper",
+  "textures/backimagegui/dispenser",
+  "textures/backimagegui/dropper"
 ]
