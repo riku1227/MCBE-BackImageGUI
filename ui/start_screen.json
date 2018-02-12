@@ -60,8 +60,9 @@
     "text": "#development_version",
     "size": [ "default", 10 ],
     "max_size": [ "100%", "100%" ],
-    "anchor_from": "center",
-    "anchor_to": "center",
+    "anchor_from": "top_right", //Edit_BIGUI
+    "anchor_to": "top_right", //Edit_BIGUI
+    "offset": [0,-10], //Edit_BIGUI
     "bindings": [
       {
         "binding_name": "#development_version"
@@ -78,6 +79,7 @@
     "max_size": [ "100%", "100%" ],
     "anchor_from": "top_right",
     "anchor_to": "top_right",
+    "offset": [0,-20], //Edit_BIGUI
     "bindings": [
       {
         "binding_name": "#version"
@@ -92,17 +94,38 @@
     "anchor_from": "bottom_middle",
     "anchor_to": "bottom_middle",    
     "controls": [
+      //Edit_BIGUI
       {
-        "copyright@start.copyright": { }
-      },
-      {
-        "development_version@start.development_version": {
-          "ignored": "$is_publish"
+        "copyright_panel": {
+          "type": "stack_panel",
+          "size": [ "100%", "100%" ],
+          "orientation": "vertical",
+          "offset": [ 0, -11 ],
+          "controls": [
+            {
+              "copyright@start.copyright": { }
+            },
+            {
+              "copyright2@start.copyright": {
+                "text": "BackImageGUI by riku1227"
+              }
+            }
+          ]
         }
+      },
+      //Edit_BIGUI
+      {
+        "development_version@start.development_version": { }
       },
       {
         "version@start.version": { }
-      }
+      },
+      {
+        "bigui_version@start.version": {
+          "text": "BIGUI v1.3.0",
+          "offset": [0,0]
+        }
+      } //Edit_BIGUI
     ]
   },
 
