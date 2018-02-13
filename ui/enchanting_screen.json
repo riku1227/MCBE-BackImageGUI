@@ -426,7 +426,16 @@
         "root_panel@common.root_panel": {
           "layer": 1,
           "controls": [
-            { "common_panel@common.common_panel": {} },
+            {
+              "common_panel@common.common_panel": {
+                "variables": [
+                  {
+                    "requires": "($enchanting_bg = replace)",
+                    "$dialog_background": ""
+                  }
+                ] //Edit_BIGUI
+              }
+            },
             {
               "enchanting_screen_inventory": {
                 "type": "panel",

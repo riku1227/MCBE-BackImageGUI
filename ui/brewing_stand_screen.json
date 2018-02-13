@@ -356,7 +356,16 @@
         "root_panel@common.root_panel": {
           "layer": 1,
           "controls": [
-            { "common_panel@common.common_panel": {} },
+            {
+              "common_panel@common.common_panel": {
+                "variables": [
+                  {
+                    "requires": "($brewing_stand_bg = replace)",
+                    "$dialog_background": ""
+                  }
+                ] //Edit_BIGUI
+              }
+            },
             {
               "furnace_screen_inventory": {
                 "type": "panel",

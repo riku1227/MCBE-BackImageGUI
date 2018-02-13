@@ -2068,11 +2068,33 @@
 
     "controls": [
       {
-        "common_panel@common.common_panel": {
+        "inventory_common_panel@common.common_panel": {
           "offset": [ 0, 0 ],
-          "$show_close_button": false
+          "$show_close_button": false,
+          "ignored": "($top_half_variant = crafting.crafting_panel_top_half)",
+          "variables": [
+            {
+              "requires": "($inventory_bg = replace)",
+              "$dialog_background": ""
+            }
+          ] //Edit_BIGUI
         }
       },
+      //Edit_BIGUI
+      {
+        "crafting_common_panel@common.common_panel": {
+          "offset": [ 0, 0 ],
+          "$show_close_button": false,
+          "ignored": "($top_half_variant = crafting.survival_panel_top_half)",
+          "variables": [
+            {
+              "requires": "($crafting_bg = replace)",
+              "$dialog_background": ""
+            }
+          ]
+        }
+      },
+
       {
         "inventory_panel_top_half@$top_half_variant": {
           "layer": 2,

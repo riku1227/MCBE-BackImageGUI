@@ -179,7 +179,16 @@
         "root_panel@common.root_panel": {
           "layer": 1,
           "controls": [
-            { "common_panel@common.common_panel": {} },
+            {
+              "common_panel@common.common_panel": {
+                "variables": [
+                  {
+                    "requires": "($chest_bg = replace)",
+                    "$dialog_background": ""
+                  }
+                ] //Edit_BIGUI
+              }
+            },
             {
               "chest_panel": {
                 "type": "panel",
@@ -248,7 +257,16 @@
           "size": [ 176, 220 ],
           "layer": 1,
           "controls": [
-            { "common_panel@common.common_panel": {} },
+            {
+              "common_panel@common.common_panel": {
+                "variables": [
+                  {
+                    "requires": "($large_chest_bg = replace)",
+                    "$dialog_background": ""
+                  }
+                ] //Edit_BIGUI
+              }
+            },
             {
               "chest_panel": {
                 "type": "panel",

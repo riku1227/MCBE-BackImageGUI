@@ -150,7 +150,43 @@
           "layer": 1,
           "size": "$screen_dimensions",
           "controls": [
-            { "common_panel@common.common_panel": {} },
+            //Edit_BIGUI
+            {
+              "hopper_common_panel@common.common_panel": {
+                "ignored": "(not ($screen_label = redstone.hopper_label))",
+                "variables": [
+                  {
+                    "requires": "($hopper_bg = replace)",
+                    "$dialog_background": ""
+                  }
+                ]
+              }
+            },
+            //Edit_BIGUI
+            {
+              "dropper_common_panel@common.common_panel": {
+                "ignored": "(not ($screen_label = redstone.dropper_label))",
+                "variables": [
+                  {
+                    "requires": "($dropper_bg = replace)",
+                    "$dialog_background": ""
+                  }
+                ]
+              }
+            },
+            //Edit_BIGUI
+            {
+              "dispenser_common_panel@common.common_panel": {
+                "ignored": "(not ($screen_label = redstone.dispenser_label))",
+                "variables": [
+                  {
+                    "requires": "($dispenser_bg = replace)",
+                    "$dialog_background": ""
+                  }
+                ]
+              }
+            },
+
             {
               "redstone_screen_inventory": {
                 "type": "panel",
