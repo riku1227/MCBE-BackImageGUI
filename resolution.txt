@@ -1,0 +1,27 @@
+R3D Texture
+Anvil: 1408x1328
+BrewingStand: 1408x1328
+Chest: 1408x1328
+LargeChest: 1408x1776
+EnchantingTable: 1408x1328
+Furnace: 1408x1328
+CraftingTable: 1408x1328
+Inventory: 1408x1328
+Hopper: 1408x1064
+Dispenser: 1408x1328
+Dropper: 1408x1328
+Trade: 1408x1328
+
+Ratio
+Anvil: 88:83
+BrewingStand: 88:83
+Chest: 88:83
+LargeChest: 44:55.5
+EnchantingTable: 88:83
+Furnace: 88:83
+CraftingTable: 88:83
+Inventory: 88:83
+Hopper: 88:66.5
+Dispenser: 88:83
+Dropper: 1408x1328
+Trade: 88:83
