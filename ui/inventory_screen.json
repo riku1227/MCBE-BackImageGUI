@@ -2703,7 +2703,7 @@
       //Edit_BIGUI
       {
         "crafting_screen_bg@crafting.crafting_screen_bg": {
-          "ignored": "($top_half_variant = crafting.survival_panel_top_half or (not ($inventory_bg = background)))"
+          "ignored": "($top_half_variant = crafting.survival_panel_top_half or (not ($crafting_bg = background)))"
         }
       },
 
