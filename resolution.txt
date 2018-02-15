@@ -23,5 +23,5 @@ CraftingTable: 88:83
 Inventory: 88:83
 Hopper: 88:66.5
 Dispenser: 88:83
-Dropper: 1408x1328
+Dropper: 88:83
 Trade: 88:83
