@@ -14,5 +14,10 @@
             "uuid": "a470c031-91be-492f-9333-c40bab1e81f0",
             "version": [1, 3, 0]
         }
-    ]
+    ],
+    "metadata": {
+        "authors": [ "riku1227" ],
+        "license": "https://riku1227.github.io/html/terms_of_use.html",
+        "url": "https://riku1227.github.io/"
+    }
 }
