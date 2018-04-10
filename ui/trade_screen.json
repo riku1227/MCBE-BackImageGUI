@@ -1,6 +1,6 @@
 /*
-  BackImageGUI v1.3.0
-  Base json version v1.2.10.2
+  BackImageGUI v1.3.1
+  Base json version v1.2.13.54
   Download: https://riku1227.github.io/html/distributions/backimage_gui.html
   SourceCode: https://github.com/riku1227/MCBE-BackImageGUI
   Twitter: https://twitter.com/_riku1227_
@@ -476,7 +476,6 @@
     "type": "panel",
     "controls": [
       { "gamepad_helpers@common.container_gamepad_helpers": {} },
-      { "screen_background@common.screen_background": {} },
       { "flying_item_renderer@common.flying_item_renderer": {} },
       {
         "root_panel@common.root_panel": {
@@ -541,20 +540,18 @@
   },
 
   "trade_screen@common.inventory_screen_common": {
+    "$screen_bg_content": "common.screen_background",
     "$close_on_player_hurt|default": true,
     "close_on_player_hurt": "$close_on_player_hurt",
     "variables": [
       {
         "requires": "$desktop_screen",
-        "$visible_screen": "trade.trade_panel"
+        "$screen_content": "trade.trade_panel"
       },
       {
         "requires": "$pocket_screen",
-        "$visible_screen": "trade_pocket.trade_panel"
+        "$screen_content": "trade_pocket.trade_panel"
       }
-    ],
-    "controls": [
-      { "screen@$visible_screen": {} }
     ]
   }
 }

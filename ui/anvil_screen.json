@@ -4,8 +4,8 @@
 +*********************************************************/
 
 /*
-  BackImageGUI v1.3.0
-  Base json version v1.2.10.2
+  BackImageGUI v1.3.1
+  Base json version v1.2.13.54
   Download: https://riku1227.github.io/html/distributions/backimage_gui.html
   SourceCode: https://github.com/riku1227/MCBE-BackImageGUI
   Twitter: https://twitter.com/_riku1227_
@@ -185,6 +185,65 @@
 
   //#endregion
 
+  "anvil_output_slot_button@common.container_slot_button_prototype": {
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "button.anvil_take_all_place_all",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_ok",
+        "to_button_id": "button.anvil_take_all_place_all",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_secondary_select",
+        "to_button_id": "button.container_take_half_place_one",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.controller_select",
+        "to_button_id": "button.container_take_half_place_one",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_auto_place",
+        "to_button_id": "button.container_auto_place",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.controller_secondary_select",
+        "to_button_id": "button.container_auto_place",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_inventory_drop",
+        "to_button_id": "button.drop_one",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_inventory_drop_all",
+        "to_button_id": "button.drop_all",
+        "mapping_type": "pressed"
+      },
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "button.anvil_coalesce_stack",
+        "mapping_type": "double_pressed"
+      },
+      {
+        "from_button_id": "button.menu_ok",
+        "to_button_id": "button.anvil_coalesce_stack",
+        "mapping_type": "double_pressed"
+      },
+      {
+        "to_button_id": "button.container_slot_hovered",
+        "mapping_type": "pressed"
+      }
+    ]
+  },
+
   "anvil_item_slot": {
     "type": "panel",
     "controls":[
@@ -211,7 +270,7 @@
     "grid_dimensions": [ 5, 1 ],
     "controls": [
       {
-        "input_item_slot@anvil_item_slot": {
+        "input_item_slot@anvil.anvil_item_slot": {
           "grid_position": [ 0, 0 ],
           "$item_collection_name": "anvil_input_items",
 
@@ -233,7 +292,7 @@
         }
       },
       {
-        "material_item_slot@anvil_item_slot": {
+        "material_item_slot@anvil.anvil_item_slot": {
           "grid_position": [ 2, 0 ],
           "$item_collection_name": "anvil_material_items",
 
@@ -263,9 +322,10 @@
         }
       },
       {
-        "result_item_slot@anvil_item_slot": {
+        "result_item_slot@anvil.anvil_item_slot": {
           "grid_position": [ 4, 0 ],
           "$item_collection_name": "anvil_result_items",
+          "$button_ref": "anvil.anvil_output_slot_button",
 
           "$focus_id_binding_type": "none",
           "$focus_id": "anvil_result",

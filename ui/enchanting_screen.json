@@ -4,8 +4,8 @@
 +*********************************************************/
 
 /*
-  BackImageGUI v1.3.0
-  Base json version v1.2.10.2
+  BackImageGUI v1.3.1
+  Base json version v1.2.13.54
   Download: https://riku1227.github.io/html/distributions/backimage_gui.html
   SourceCode: https://github.com/riku1227/MCBE-BackImageGUI
   Twitter: https://twitter.com/_riku1227_
@@ -302,18 +302,32 @@
     "controls": [
       { "enchanting_label@enchanting_label": { } },
       {
-        "enchanting_book": {
-          "type": "custom",
-          "renderer": "enchanting_book_renderer",
+        "enchanting_book_panel": {
+          "type": "panel",
+          "offset": [ 13, -12 ],
           "size": [ 40, 40 ],
-          "layer": 15,
           "anchor_from": "left_middle",
           "anchor_to": "left_middle",
-          "offset": [ 32, 7 ],
-          "bindings": [
+          "controls": [
             {
-              "binding_name": "#open",
-              "binding_type": "global"
+              "enchanting_book": {
+                "type": "custom",
+                "renderer": "enchanting_book_renderer",
+                "layer": 15,
+                "animation_reset_name": "screen_animation_reset",
+                "anims": [
+                  "@common.screen_exit_size_animation_push",
+                  "@common.screen_exit_size_animation_pop",
+                  "@common.screen_entrance_size_animation_push",
+                  "@common.screen_entrance_size_animation_pop"
+                ],
+                "bindings": [
+                  {
+                    "binding_name": "#open",
+                    "binding_type": "global"
+                  }
+                ]
+              }
             }
           ]
         }
@@ -492,13 +506,11 @@
       {
         "requires": "$desktop_screen",
         "$screen_content": "enchanting.enchanting_panel",
-        "$screen_bg_content": "common.screen_background",
-        "$gamepad_cursor": true
+        "$screen_bg_content": "common.screen_background"
       },
       {
         "requires": "$pocket_screen",
-        "$screen_content": "enchanting_pocket.enchanting_panel",
-        "$gamepad_cursor": false
+        "$screen_content": "enchanting_pocket.enchanting_panel"
       }
     ]
   }

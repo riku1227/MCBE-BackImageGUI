@@ -4,7 +4,7 @@
         "description": "GUIの背景を画像に変更できるリースバックです。\nTwitter: @_riku1227_\nWeb: https://riku1227.github.io",
         "name": "BackImageGUI",
         "uuid": "01389ce4-48a9-4d1b-bf47-1d9abe4093f0",
-        "version": [1, 3, 0],
+        "version": [1, 3, 1],
         "min_engine_version": [1, 2, 6]
     },
     "modules": [
@@ -12,12 +12,7 @@
             "description": "GUIの背景を画像に変更できるリースバックです。\nTwitter: @_riku1227_\nWeb: https://riku1227.github.io",
             "type": "resources",
             "uuid": "a470c031-91be-492f-9333-c40bab1e81f0",
-            "version": [1, 3, 0]
+            "version": [1, 3, 1]
         }
-    ],
-    "metadata": {
-        "authors": [ "riku1227" ],
-        "license": "https://riku1227.github.io/html/terms_of_use.html",
-        "url": "https://riku1227.github.io/"
-    }
+    ]
 }

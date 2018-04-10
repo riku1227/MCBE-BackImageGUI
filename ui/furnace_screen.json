@@ -1,6 +1,6 @@
 /*
-  BackImageGUI v1.3.0
-  Base json version v1.2.10.2
+  BackImageGUI v1.3.1
+  Base json version v1.2.13.54
   Download: https://riku1227.github.io/html/distributions/backimage_gui.html
   SourceCode: https://github.com/riku1227/MCBE-BackImageGUI
   Twitter: https://twitter.com/_riku1227_
@@ -151,7 +151,10 @@
           "$item_collection_name": "furnace_ingredient_items",
           "$focus_id": "furnace_ingredient_item",
           "$focus_override_left": "FOCUS_OVERRIDE_STOP",
+          "$focus_override_left_binding_type": "none",
           "$focus_override_up": "FOCUS_OVERRIDE_STOP",
+          "$focus_override_up_binding_type": "none",
+
           "variables": [
             {
               "requires": "($furnace_bg = replace)",
@@ -178,7 +181,10 @@
           "$item_collection_name": "furnace_fuel_items",
           "$focus_id": "furnace_fuel_item",
           "$focus_override_right": "furnace_output_item",
+          "$focus_override_right_binding_type": "none",
           "$focus_override_left": "FOCUS_OVERRIDE_STOP",
+          "$focus_override_left_binding_type": "none",
+
           "variables": [
             {
               "requires": "($furnace_bg = replace)",
@@ -204,9 +210,13 @@
           "$cell_image_size": [ 26, 26 ],
           "offset": [ 22.5, 0 ], //Edit_BIGUI
           "$item_collection_name": "furnace_output_items",
+
           "$focus_id": "furnace_output_item",
+          "$focus_override_right_binding_type": "none",
           "$focus_override_right": "FOCUS_OVERRIDE_STOP",
+          "$focus_override_left_binding_type": "none",
           "$focus_override_left": "furnace_fuel_item",
+
           "variables": [
             {
               "requires": "($furnace_bg = replace)",
@@ -324,13 +334,11 @@
       {
         "requires": "$desktop_screen",
         "$screen_content": "furnace.furnace_panel",
-        "$screen_bg_content": "common.screen_background",
-        "$gamepad_cursor": true
+        "$screen_bg_content": "common.screen_background"
       },
       {
         "requires": "$pocket_screen",
-        "$screen_content": "furnace_pocket.furnace_panel",
-        "$gamepad_cursor": false
+        "$screen_content": "furnace_pocket.furnace_panel"
       }
     ]
   }
